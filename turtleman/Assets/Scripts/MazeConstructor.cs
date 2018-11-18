@@ -4,6 +4,7 @@ public class MazeConstructor : MonoBehaviour
 {
     //1
     public bool showDebug;
+    public GameObject waypoint;
     private MazeDataGenerator dataGenerator;
     private MazeMeshGenerator meshGenerator;
 
