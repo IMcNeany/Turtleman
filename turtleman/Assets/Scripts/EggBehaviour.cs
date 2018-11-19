@@ -9,10 +9,13 @@ public class EggBehaviour : MonoBehaviour {
     bool startHatch;
     public GameObject particleSystem;
     public GameObject turtle;
+    MeshRenderer eggRenderer;
 	// Use this for initialization
 	void Start () {
         startHatch = true;
-	}
+        eggRenderer = gameObject.GetComponent<MeshRenderer>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,21 +29,26 @@ public class EggBehaviour : MonoBehaviour {
             particleSystem.SetActive(true);
             life = 0;
             startHatch = false;
-
+            eggRenderer.enabled = false;
             //spawn enemy
             Instantiate(turtle, gameObject.transform.position, gameObject.transform.rotation);
             //delete this
 
-            Destroy(gameObject,2.0f);
+            Destroy(gameObject,3.0f);
 
         }
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        //add one to egg collection
 
-        Destroy(gameObject, 0.1f);
+        if (other.GetComponent<PlayerController>())
+        {
+            //add one to egg collection
+
+
+            Destroy(gameObject, 0.1f);
+        }
     }
 
 
