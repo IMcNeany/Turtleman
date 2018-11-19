@@ -6,6 +6,8 @@ public class EggBehaviour : MonoBehaviour {
 
     float life = 0;
     float hatchTime = 2.0f;
+    float speed = 1.0f;
+    float strength = 1.0f;
     bool startHatch;
     public GameObject particleSystem;
     public GameObject turtle;
@@ -22,6 +24,7 @@ public class EggBehaviour : MonoBehaviour {
         if (startHatch)
         {
             life += Time.deltaTime;
+            transform.rotation = new Quaternion(Mathf.Sin(Time.time * 5.0f) * 0.15f, transform.rotation.y, transform.rotation.z,1.0f);
         }
         if(life > hatchTime)
         {
