@@ -12,10 +12,12 @@ public class EggBehaviour : MonoBehaviour {
     public GameObject particleSystem;
     public GameObject turtle;
     MeshRenderer eggRenderer;
+    UI_Manager ui_manager;
 	// Use this for initialization
 	void Start () {
         startHatch = true;
         eggRenderer = gameObject.GetComponent<MeshRenderer>();
+        ui_manager = gameObject.GetComponent<UI_Manager>();
 
     }
 	
@@ -48,7 +50,7 @@ public class EggBehaviour : MonoBehaviour {
         if (other.GetComponent<PlayerController>())
         {
             //add one to egg collection
-
+            ui_manager.EggCount = ui_manager.EggCount += 1;
 
             Destroy(gameObject, 0.1f);
         }

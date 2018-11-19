@@ -6,17 +6,23 @@ using UnityEngine.UI;
 public class UI_Manager : MonoBehaviour
 {
     [Header("Health Values")]
-    public Text HealthText;
-
-    [Header("Timer Values")]
-    [SerializeField] private Text TimerText;
-    [SerializeField] private float seconds = 100.0f; //How many seconds
-    private float timer;
-    private bool canCount = true;
-    private bool doOnce = false;
+    public int Health = 3;
+    public Image HP1;
+    public Image HP2;
+    public Image HP3;
 
     [Header("Score Values")]
     public Text ScoreText;
+    public int EggCount = 0;
+
+    //[Header("Timer Values")]
+    //[SerializeField]
+    //private Text TimerText;
+    //[SerializeField] private float seconds = 100.0f; //How many seconds
+    //private float timer;
+    //private bool canCount = true;
+    //private bool doOnce = false;
+
 
     // Use this for initialization
     void Start()
@@ -28,38 +34,58 @@ public class UI_Manager : MonoBehaviour
     void Update()
     {
         UIStuff();
-        GameTimer();
-        FormatTimer();
+        //GameTimer();
+        //FormatTimer();
     }
 
     private void UIStuff()
     {
-        HealthText.text = "x " + 3 /*health value*/;
-
-        ScoreText.text = "Egg Count: " + 100 /*Egg*/;
-
-    }
-
-    private void GameTimer()
-    {
-        if (timer >= 0.0f && canCount)
+        switch (Health)
         {
-            timer -= 1 * Time.deltaTime;
-            TimerText.text = timer.ToString("F");
+            case 0:
+                HP1.enabled = false;
+                HP2.enabled = false;
+                HP3.enabled = false;
+                break;
+            case 1:
+                HP1.enabled = true;
+                HP2.enabled = false;
+                HP3.enabled = false;
+                break;
+            case 2:
+                HP1.enabled = true;
+                HP2.enabled = true;
+                HP3.enabled = false;
+                break;
+            case 3:
+                HP1.enabled = true;
+                HP2.enabled = true;
+                HP3.enabled = true;
+                break;
         }
-        else if (timer <= 0.0f && !doOnce)
-        {
-            canCount = false;
-            doOnce = true;
-            TimerText.text = "0.00";
-            timer = 0.0f;
-        }
+        ScoreText.text = "" + EggCount;
     }
 
-    private void FormatTimer() //Changes seconds to minutes
-    {
-        string minutes = Mathf.Floor(timer / 60).ToString("00");
-        string seconds = (timer % 60).ToString("00");
-        TimerText.text = "Time Left: " + minutes + " : " + seconds;
-    }
+    //private void GameTimer()
+    //{
+    //    if (timer >= 0.0f && canCount)
+    //    {
+    //        timer -= 1 * Time.deltaTime;
+    //        TimerText.text = timer.ToString("F");
+    //    }
+    //    else if (timer <= 0.0f && !doOnce)
+    //    {
+    //        canCount = false;
+    //        doOnce = true;
+    //        TimerText.text = "0.00";
+    //        timer = 0.0f;
+    //    }
+    //}
+
+    //private void FormatTimer() //Changes seconds to minutes
+    //{
+    //    string minutes = Mathf.Floor(timer / 60).ToString("00");
+    //    string seconds = (timer % 60).ToString("00");
+    //    TimerText.text = "Time Left: " + minutes + " : " + seconds;
+    //}
 }
