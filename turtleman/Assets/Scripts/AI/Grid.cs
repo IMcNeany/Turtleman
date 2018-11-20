@@ -82,14 +82,11 @@ public class Grid : MonoBehaviour {
 		GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
 		nodes = new Node[waypoints.Length];
 		
-		int index = 0;
-		foreach(GameObject go in waypoints){
-			Node node = go.GetComponent<Node>();
-			node.gridX = (int)(node.transform.position.x / nodeDiameter);
-			node.gridY = (int)(node.transform.position.z / nodeDiameter);
-
-			nodes[index++] = node;
-		}
+        for(int i = 0; i < waypoints.Length; i++){
+            nodes[i] = waypoints[i].GetComponent<Node>();
+            nodes[i].gridX = (int)(nodes[i].transform.position.x / nodeDiameter);
+			nodes[i].gridY = (int)(nodes[i].transform.position.z / nodeDiameter);
+        }
 	}
 
 	private Node getNodeFromPosition(Vector3 position){
@@ -98,8 +95,8 @@ public class Grid : MonoBehaviour {
 
         int index = gridX + (gridY * rows);
         Node node = null;
-
-        if (index < nodes.Length) {
+    
+        if (index < nodes.Length - 1) {
             node = nodes[index];
         }
         
