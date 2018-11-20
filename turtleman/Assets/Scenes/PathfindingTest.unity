@@ -379,15 +379,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114664979246900358, guid: 8628d330667ca7f4d908d20d735a9159,
-        type: 2}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114664979246900358, guid: 8628d330667ca7f4d908d20d735a9159,
-        type: 2}
-      propertyPath: maxWaitTime
-      value: 3
+    - target: {fileID: 1869703495679452, guid: 8628d330667ca7f4d908d20d735a9159, type: 2}
+      propertyPath: m_Name
+      value: Turtle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8628d330667ca7f4d908d20d735a9159, type: 2}

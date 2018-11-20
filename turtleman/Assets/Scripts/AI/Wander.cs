@@ -6,10 +6,20 @@ public class Wander : MonoBehaviour {
 
     public float maxWaitTime = 5.0f;
     public float speed = 5.0f;
+    public float acquisitionRadius = 5.0f;
     private Grid grid;
     private List<Node> path;
     private int pathIndex = 0;
     private bool waitingForPath = false;
+    private GameObject player;
+
+    public void playerAquired(GameObject player){
+        this.player = player;
+    }
+
+    public void deAquire(){
+        player = null;
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -31,12 +41,16 @@ public class Wander : MonoBehaviour {
                 }
             }
         } else if(!waitingForPath){
-            Invoke("findNewPath", Random.Range(1.0f, maxWaitTime));
-            waitingForPath = true;
+            if(player == null){
+                Invoke("findNewRandomPath", Random.Range(1.0f, maxWaitTime));
+                waitingForPath = true;
+            } else {
+                path = grid.findPath(transform.position, player.transform.position);
+            }
         }
 	}
 
-    private void findNewPath()
+    private void findNewRandomPath()
     {
         Node randomNode = grid.getRandomWalkableNode();
         path = grid.findPath(transform.position, randomNode.transform.position);
