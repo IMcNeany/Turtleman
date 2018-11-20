@@ -66,6 +66,17 @@ public class Grid : MonoBehaviour {
 
         return null;
     }
+
+    public Node getRandomWalkableNode(){
+        Node selected = null;
+
+        do{
+            int index = Random.Range(0, nodes.Length - 1);
+            selected = nodes[index];
+        }while(!selected.walkable);
+        
+        return selected;
+    }
 	
 	private void generateNodes(){
 		GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
@@ -102,7 +113,7 @@ public class Grid : MonoBehaviour {
         {
             for (int x = -1; x <= 1; x++)
             {
-                if (x == 0 && y == 0)
+                if ((Mathf.Abs(x) == Mathf.Abs(y)))
                 {
                     continue;
                 }
