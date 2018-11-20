@@ -8,6 +8,7 @@ public class SceneController : MonoBehaviour
 {
     private GameObject game_controller;
 
+
     private void Start()
     {
         game_controller = GameObject.FindGameObjectWithTag("GameController");
@@ -36,11 +37,13 @@ public class SceneController : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(2);
     }
 
     public void quit()
     {
         Application.Quit();
     }
+
+
 }

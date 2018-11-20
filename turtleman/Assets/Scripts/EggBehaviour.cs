@@ -5,7 +5,7 @@ using UnityEngine;
 public class EggBehaviour : MonoBehaviour {
 
     float life = 0;
-    float hatchTime = 2.0f;
+    float hatchTime = 10.0f;
     float speed = 1.0f;
     float strength = 1.0f;
     bool startHatch;

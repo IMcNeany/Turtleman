@@ -17,7 +17,7 @@ public class PlayerAquire : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider collided)
     {
-        if (collided)	//Todo: is player
+        if (collided.tag == "Player")
         {
             parent.playerAquired(collided.gameObject);
         }
@@ -25,7 +25,7 @@ public class PlayerAquire : MonoBehaviour {
 
 	private void OnTriggerExit(Collider collided)
     {
-        if (collided)	//Todo: is player
+        if (collided.tag == "Player")
         {
           parent.deAquire();
         }
