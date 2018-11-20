@@ -37,11 +37,15 @@ public class Wander : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(closeRange){
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            Vector3 target = player.transform.position;
+            target.y = 1.0f;
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         } else if(path != null && path.Count > 0){
-            transform.position = Vector3.MoveTowards(transform.position, path[pathIndex].transform.position, speed * Time.deltaTime);
+            Vector3 target = path[pathIndex].transform.position;
+            target.y = 1.0f;
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-            if(roundVec(transform.position, 1.0f) == roundVec(path[pathIndex].transform.position, 1.0f)){
+            if(roundVec(transform.position, 1.0f) == roundVec(target, 1.0f)){
                 pathIndex++;
 
                 if(pathIndex >= path.Count)
