@@ -36,7 +36,7 @@ public class Wander : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(closeRange){
+        if (closeRange){
             Vector3 target = player.transform.position;
             target.y = 1.0f;
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
@@ -62,6 +62,7 @@ public class Wander : MonoBehaviour {
                 path = grid.findPath(transform.position, player.transform.position);
             }
         }
+        transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
 	}
 
     private void findNewRandomPath()

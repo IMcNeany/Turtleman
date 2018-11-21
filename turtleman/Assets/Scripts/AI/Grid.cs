@@ -9,12 +9,12 @@ public class Grid : MonoBehaviour {
     private int width;
     private int height;
 
-    private Node[] nodes;
+    public Node[] nodes;
 	// Use this for initialization
 	void Start () {
         width = (int)(rows * nodeDiameter);
         height = (int)(cols * nodeDiameter);
-        generateNodes();
+        Invoke("generateNodes", 1.0f);
 	}
 
     public List<Node> findPath(Vector3 position, Vector3 target) {
