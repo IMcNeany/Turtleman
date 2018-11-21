@@ -6,14 +6,23 @@ public class Wander : MonoBehaviour {
 
     public float maxWaitTime = 5.0f;
     public float baseSpeed = 5.0f;
+    public float groundOffset = 0.15f;
+
     private float speed = 5.0f;
     public float acquisitionRadius = 5.0f;
-    private Grid grid;
     private List<Node> path;
     private int pathIndex = 0;
     private bool waitingForPath = false;
     private bool closeRange = false;
     private GameObject player;
+
+    private Grid grid;
+    private Animator anim;
+    private Rigidbody rb;
+
+    public void setClose(bool b) {
+       //closeRange = b;
+    }
 
     public void playerAquired(GameObject player){
         this.player = player;
@@ -32,20 +41,24 @@ public class Wander : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         grid = GameObject.FindGameObjectWithTag("WaypointGrid").GetComponent<Grid>();
+        anim = GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (closeRange){
             Vector3 target = player.transform.position;
-            target.y = 1.0f;
+            target.y = groundOffset;
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            
         } else if(path != null && path.Count > 0){
             Vector3 target = path[pathIndex].transform.position;
-            target.y = 1.0f;
+            target.y = groundOffset;
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
-            if(roundVec(transform.position, 1.0f) == roundVec(target, 1.0f)){
+            transform.LookAt(transform.position - target);
+            anim.SetBool("moving", true);
+            if (roundVec(transform.position, 0.2f) == roundVec(target, 0.2f)){
                 pathIndex++;
 
                 if(pathIndex >= path.Count)
@@ -55,11 +68,15 @@ public class Wander : MonoBehaviour {
                 }
             }  
         } else if(!waitingForPath){
+            anim.SetBool("moving", false);
             if(player == null){
                 Invoke("findNewRandomPath", Random.Range(1.0f, maxWaitTime));
                 waitingForPath = true;
             } else {
-                path = grid.findPath(transform.position, player.transform.position);
+                if (Vector3.Distance(transform.position, player.transform.position) > 6.0f)
+                {
+                    path = grid.findPath(transform.position, player.transform.position);
+                }
             }
         }
         transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
@@ -79,19 +96,5 @@ public class Wander : MonoBehaviour {
              Mathf.Round(vector.z / roundTo) * roundTo);
     }
 
-    private void OnTriggerEnter(Collider collided)
-    {
-        if (collided.tag == "Player")	//Todo: is player
-        {
-            closeRange = true;
-        }
-    }
-
-	private void OnTriggerExit(Collider collided)
-    {
-        if (collided.tag == "Player")	//Todo: is player
-        {
-            closeRange = false;
-        }
-    }
+    
 }

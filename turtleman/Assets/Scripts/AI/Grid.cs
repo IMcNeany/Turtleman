@@ -21,6 +21,11 @@ public class Grid : MonoBehaviour {
         Node start = getNodeFromPosition(position);
         Node end = getNodeFromPosition(target);
 
+        if (start == null || end == null) {
+            Debug.Log("Could not find path from: " + position + " to " + target);
+            return null;
+        }
+
         List<Node> openSet = new List<Node>();
         List<Node> closedSet = new List<Node>();
 
@@ -90,8 +95,8 @@ public class Grid : MonoBehaviour {
 	}
 
 	private Node getNodeFromPosition(Vector3 position){
-        int gridX = (int)(position.x / nodeDiameter);
-        int gridY = (int)(position.z / nodeDiameter);
+        int gridX = (int)(position.x / nodeDiameter) + 1;
+        int gridY = (int)(position.z / nodeDiameter) + 1;
 
         int index = gridX + (gridY * rows);
         Node node = null;
