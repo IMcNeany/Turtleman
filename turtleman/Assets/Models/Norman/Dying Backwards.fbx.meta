@@ -1,57 +1,57 @@
 fileFormatVersion: 2
-guid: 80b9177265ae175479534d5da9248c3c
+guid: fd8725cca7c6cfb4a925b877d91c142a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: H_DDS_MidRes
-    100002: Head
-    100004: HeadEnd
-    100006: Hips
-    100008: LeftArm
-    100010: LeftEye
-    100012: LeftFingerBase
-    100014: LeftFoot
-    100016: LeftForeArm
-    100018: LeftHand
-    100020: LeftHandIndex0
-    100022: LeftHandIndex1
-    100024: LeftHandIndex2
-    100026: LeftHandIndex3
-    100028: LeftHandIndex4
-    100030: LeftHandMiddle1
-    100032: LeftHandMiddle2
-    100034: LeftHandMiddle3
-    100036: LeftHandMiddle4
-    100038: LeftHandPinky0
-    100040: LeftHandPinky1
-    100042: LeftHandPinky2
-    100044: LeftHandPinky3
-    100046: LeftHandPinky4
-    100048: LeftHandRing1
-    100050: LeftHandRing2
-    100052: LeftHandRing3
-    100054: LeftHandRing4
-    100056: LeftHandThumb1
-    100058: LeftHandThumb2
-    100060: LeftHandThumb3
-    100062: LeftHandThumb4
-    100064: LeftLeg
-    100066: LeftShoulder
-    100068: LeftToeBase
-    100070: LeftToeEnd
-    100072: LeftUpLeg
-    100074: Lights
-    100076: m_L_eye
-    100078: m_L_gland
-    100080: m_L_trans
-    100082: m_R_eye
-    100084: m_R_gland
-    100086: m_R_trans
-    100088: m_TeethDown
-    100090: m_TeethUp
-    100092: master
-    100094: Neck
-    100096: //RootNode
+    100000: //RootNode
+    100002: H_DDS_MidRes
+    100004: Head
+    100006: HeadEnd
+    100008: Hips
+    100010: LeftArm
+    100012: LeftEye
+    100014: LeftFingerBase
+    100016: LeftFoot
+    100018: LeftForeArm
+    100020: LeftHand
+    100022: LeftHandIndex0
+    100024: LeftHandIndex1
+    100026: LeftHandIndex2
+    100028: LeftHandIndex3
+    100030: LeftHandIndex4
+    100032: LeftHandMiddle1
+    100034: LeftHandMiddle2
+    100036: LeftHandMiddle3
+    100038: LeftHandMiddle4
+    100040: LeftHandPinky0
+    100042: LeftHandPinky1
+    100044: LeftHandPinky2
+    100046: LeftHandPinky3
+    100048: LeftHandPinky4
+    100050: LeftHandRing1
+    100052: LeftHandRing2
+    100054: LeftHandRing3
+    100056: LeftHandRing4
+    100058: LeftHandThumb1
+    100060: LeftHandThumb2
+    100062: LeftHandThumb3
+    100064: LeftHandThumb4
+    100066: LeftLeg
+    100068: LeftShoulder
+    100070: LeftToeBase
+    100072: LeftToeEnd
+    100074: LeftUpLeg
+    100076: Lights
+    100078: m_L_eye
+    100080: m_L_gland
+    100082: m_L_trans
+    100084: m_R_eye
+    100086: m_R_gland
+    100088: m_R_trans
+    100090: m_TeethDown
+    100092: m_TeethUp
+    100094: master
+    100096: Neck
     100098: Reference
     100100: RightArm
     100102: RightEye
@@ -93,55 +93,55 @@ ModelImporter:
     100174: spotLight2
     100176: spotLight3
     100178: spotLight4
-    400000: H_DDS_MidRes
-    400002: Head
-    400004: HeadEnd
-    400006: Hips
-    400008: LeftArm
-    400010: LeftEye
-    400012: LeftFingerBase
-    400014: LeftFoot
-    400016: LeftForeArm
-    400018: LeftHand
-    400020: LeftHandIndex0
-    400022: LeftHandIndex1
-    400024: LeftHandIndex2
-    400026: LeftHandIndex3
-    400028: LeftHandIndex4
-    400030: LeftHandMiddle1
-    400032: LeftHandMiddle2
-    400034: LeftHandMiddle3
-    400036: LeftHandMiddle4
-    400038: LeftHandPinky0
-    400040: LeftHandPinky1
-    400042: LeftHandPinky2
-    400044: LeftHandPinky3
-    400046: LeftHandPinky4
-    400048: LeftHandRing1
-    400050: LeftHandRing2
-    400052: LeftHandRing3
-    400054: LeftHandRing4
-    400056: LeftHandThumb1
-    400058: LeftHandThumb2
-    400060: LeftHandThumb3
-    400062: LeftHandThumb4
-    400064: LeftLeg
-    400066: LeftShoulder
-    400068: LeftToeBase
-    400070: LeftToeEnd
-    400072: LeftUpLeg
-    400074: Lights
-    400076: m_L_eye
-    400078: m_L_gland
-    400080: m_L_trans
-    400082: m_R_eye
-    400084: m_R_gland
-    400086: m_R_trans
-    400088: m_TeethDown
-    400090: m_TeethUp
-    400092: master
-    400094: Neck
-    400096: //RootNode
+    400000: //RootNode
+    400002: H_DDS_MidRes
+    400004: Head
+    400006: HeadEnd
+    400008: Hips
+    400010: LeftArm
+    400012: LeftEye
+    400014: LeftFingerBase
+    400016: LeftFoot
+    400018: LeftForeArm
+    400020: LeftHand
+    400022: LeftHandIndex0
+    400024: LeftHandIndex1
+    400026: LeftHandIndex2
+    400028: LeftHandIndex3
+    400030: LeftHandIndex4
+    400032: LeftHandMiddle1
+    400034: LeftHandMiddle2
+    400036: LeftHandMiddle3
+    400038: LeftHandMiddle4
+    400040: LeftHandPinky0
+    400042: LeftHandPinky1
+    400044: LeftHandPinky2
+    400046: LeftHandPinky3
+    400048: LeftHandPinky4
+    400050: LeftHandRing1
+    400052: LeftHandRing2
+    400054: LeftHandRing3
+    400056: LeftHandRing4
+    400058: LeftHandThumb1
+    400060: LeftHandThumb2
+    400062: LeftHandThumb3
+    400064: LeftHandThumb4
+    400066: LeftLeg
+    400068: LeftShoulder
+    400070: LeftToeBase
+    400072: LeftToeEnd
+    400074: LeftUpLeg
+    400076: Lights
+    400078: m_L_eye
+    400080: m_L_gland
+    400082: m_L_trans
+    400084: m_R_eye
+    400086: m_R_gland
+    400088: m_R_trans
+    400090: m_TeethDown
+    400092: m_TeethUp
+    400094: master
+    400096: Neck
     400098: Reference
     400100: RightArm
     400102: RightEye
@@ -194,6 +194,7 @@ ModelImporter:
     4300012: m_R_eye
     4300014: m_R_trans
     4300016: H_DDS_MidRes
+    7400000: mixamo.com
     9500000: //RootNode
     10800000: spotLight1
     13700000: H_DDS_MidRes
@@ -205,17 +206,7 @@ ModelImporter:
     13700012: m_R_trans
     13700014: m_TeethDown
     13700016: m_TeethUp
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Norman_color
-    second: {fileID: 2800000, guid: dcfdcbd0a18ac7741aeac01980379120, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Norman_mid_nm
-    second: {fileID: 2800000, guid: d77edbd18c586e2458133a44c83c3cc9, type: 3}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

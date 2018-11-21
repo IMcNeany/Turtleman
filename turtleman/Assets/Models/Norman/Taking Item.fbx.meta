@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80b9177265ae175479534d5da9248c3c
+guid: ef5a25e0a3224334c8635e7bf83d52d1
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -51,48 +51,48 @@ ModelImporter:
     100090: m_TeethUp
     100092: master
     100094: Neck
-    100096: //RootNode
-    100098: Reference
-    100100: RightArm
-    100102: RightEye
-    100104: RightFingerBase
-    100106: RightFoot
-    100108: RightForeArm
-    100110: RightHand
-    100112: RightHandIndex0
-    100114: RightHandIndex1
-    100116: RightHandIndex2
-    100118: RightHandIndex3
-    100120: RightHandIndex4
-    100122: RightHandMiddle1
-    100124: RightHandMiddle2
-    100126: RightHandMiddle3
-    100128: RightHandMiddle4
-    100130: RightHandPinky0
-    100132: RightHandPinky1
-    100134: RightHandPinky2
-    100136: RightHandPinky3
-    100138: RightHandPinky4
-    100140: RightHandRing1
-    100142: RightHandRing2
-    100144: RightHandRing3
-    100146: RightHandRing4
-    100148: RightHandThumb1
-    100150: RightHandThumb2
-    100152: RightHandThumb3
-    100154: RightHandThumb4
-    100156: RightLeg
-    100158: RightShoulder
-    100160: RightToeBase
-    100162: RightToeEnd
-    100164: RightUpLeg
-    100166: Spine
-    100168: Spine1
-    100170: Spine2
-    100172: spotLight1
-    100174: spotLight2
-    100176: spotLight3
-    100178: spotLight4
+    100096: Reference
+    100098: RightArm
+    100100: RightEye
+    100102: RightFingerBase
+    100104: RightFoot
+    100106: RightForeArm
+    100108: RightHand
+    100110: RightHandIndex0
+    100112: RightHandIndex1
+    100114: RightHandIndex2
+    100116: RightHandIndex3
+    100118: RightHandIndex4
+    100120: RightHandMiddle1
+    100122: RightHandMiddle2
+    100124: RightHandMiddle3
+    100126: RightHandMiddle4
+    100128: RightHandPinky0
+    100130: RightHandPinky1
+    100132: RightHandPinky2
+    100134: RightHandPinky3
+    100136: RightHandPinky4
+    100138: RightHandRing1
+    100140: RightHandRing2
+    100142: RightHandRing3
+    100144: RightHandRing4
+    100146: RightHandThumb1
+    100148: RightHandThumb2
+    100150: RightHandThumb3
+    100152: RightHandThumb4
+    100154: RightLeg
+    100156: RightShoulder
+    100158: RightToeBase
+    100160: RightToeEnd
+    100162: RightUpLeg
+    100164: Spine
+    100166: Spine1
+    100168: Spine2
+    100170: spotLight1
+    100172: spotLight2
+    100174: spotLight3
+    100176: spotLight4
+    100178: //RootNode
     400000: H_DDS_MidRes
     400002: Head
     400004: HeadEnd
@@ -141,48 +141,48 @@ ModelImporter:
     400090: m_TeethUp
     400092: master
     400094: Neck
-    400096: //RootNode
-    400098: Reference
-    400100: RightArm
-    400102: RightEye
-    400104: RightFingerBase
-    400106: RightFoot
-    400108: RightForeArm
-    400110: RightHand
-    400112: RightHandIndex0
-    400114: RightHandIndex1
-    400116: RightHandIndex2
-    400118: RightHandIndex3
-    400120: RightHandIndex4
-    400122: RightHandMiddle1
-    400124: RightHandMiddle2
-    400126: RightHandMiddle3
-    400128: RightHandMiddle4
-    400130: RightHandPinky0
-    400132: RightHandPinky1
-    400134: RightHandPinky2
-    400136: RightHandPinky3
-    400138: RightHandPinky4
-    400140: RightHandRing1
-    400142: RightHandRing2
-    400144: RightHandRing3
-    400146: RightHandRing4
-    400148: RightHandThumb1
-    400150: RightHandThumb2
-    400152: RightHandThumb3
-    400154: RightHandThumb4
-    400156: RightLeg
-    400158: RightShoulder
-    400160: RightToeBase
-    400162: RightToeEnd
-    400164: RightUpLeg
-    400166: Spine
-    400168: Spine1
-    400170: Spine2
-    400172: spotLight1
-    400174: spotLight2
-    400176: spotLight3
-    400178: spotLight4
+    400096: Reference
+    400098: RightArm
+    400100: RightEye
+    400102: RightFingerBase
+    400104: RightFoot
+    400106: RightForeArm
+    400108: RightHand
+    400110: RightHandIndex0
+    400112: RightHandIndex1
+    400114: RightHandIndex2
+    400116: RightHandIndex3
+    400118: RightHandIndex4
+    400120: RightHandMiddle1
+    400122: RightHandMiddle2
+    400124: RightHandMiddle3
+    400126: RightHandMiddle4
+    400128: RightHandPinky0
+    400130: RightHandPinky1
+    400132: RightHandPinky2
+    400134: RightHandPinky3
+    400136: RightHandPinky4
+    400138: RightHandRing1
+    400140: RightHandRing2
+    400142: RightHandRing3
+    400144: RightHandRing4
+    400146: RightHandThumb1
+    400148: RightHandThumb2
+    400150: RightHandThumb3
+    400152: RightHandThumb4
+    400154: RightLeg
+    400156: RightShoulder
+    400158: RightToeBase
+    400160: RightToeEnd
+    400162: RightUpLeg
+    400164: Spine
+    400166: Spine1
+    400168: Spine2
+    400170: spotLight1
+    400172: spotLight2
+    400174: spotLight3
+    400176: spotLight4
+    400178: //RootNode
     2100000: _Body_Mid
     2100002: _Eye_trans
     4300000: m_TeethDown
@@ -194,6 +194,7 @@ ModelImporter:
     4300012: m_R_eye
     4300014: m_R_trans
     4300016: H_DDS_MidRes
+    7400000: mixamo.com
     9500000: //RootNode
     10800000: spotLight1
     13700000: H_DDS_MidRes
@@ -205,17 +206,7 @@ ModelImporter:
     13700012: m_R_trans
     13700014: m_TeethDown
     13700016: m_TeethUp
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Norman_color
-    second: {fileID: 2800000, guid: dcfdcbd0a18ac7741aeac01980379120, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Norman_mid_nm
-    second: {fileID: 2800000, guid: d77edbd18c586e2458133a44c83c3cc9, type: 3}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
