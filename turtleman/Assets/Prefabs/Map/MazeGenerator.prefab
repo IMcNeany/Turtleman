@@ -80,10 +80,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398156cea51aebc4f8136509403ce977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  row: 12
-  col: 12
+  row: 15
+  col: 15
   scale: 5
   tile:
   - {fileID: 1508487401054508, guid: f170b7e746e975a4d8e91f4b27ba45c2, type: 2}
   - {fileID: 1293557106302150, guid: bb36588ad4b33d14a8eba96e61292483, type: 2}
   - {fileID: 1554525299615022, guid: 93550f8644d0b3848a1c6a903971f7fa, type: 2}
+  debug: 1
