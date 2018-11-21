@@ -10,11 +10,15 @@ public class GenerateMaze : MonoBehaviour
     public int scale = 5;
 
     public GameObject[] tile;
+    public GameObject egg;
     public bool debug = false; //display maze visual
+    //public int number_of_starting_eggs = 5;
 
     private string[] maze_data;
     private string msg = "";
     private int[,] data;
+    //private int[] eggs;
+    //private int egg_count = 5;
     private float placementThreshold;
     private bool has_set_player = false;
     private GameObject[] maze;
@@ -87,7 +91,6 @@ public class GenerateMaze : MonoBehaviour
             }
             msg += "\n";
         }
-
     }
 
     private void Start()
@@ -96,6 +99,8 @@ public class GenerateMaze : MonoBehaviour
         maze_data = new string[row * col];
         maze_holder = GameObject.Find("MazeHolder");
         player = GameObject.FindGameObjectWithTag("Player");
+        //egg_count = number_of_starting_eggs;
+        //eggs = new int[number_of_starting_eggs];
 
         // default to walls surrounding a single empty cell
         data = new int[,]
@@ -177,6 +182,14 @@ public class GenerateMaze : MonoBehaviour
                         player.transform.position = instan.transform.position;
                         has_set_player = true;
                     }
+                    //if(index >= row * 5)
+                    //{
+                    //    if(egg_count > 0)
+                    //    {
+                    //        Instantiate(egg, instan.transform.position, Quaternion.identity);
+                    //        egg_count--;
+                    //    }
+                    //}
                 }
                 instan.name = "Tile: " + i + j;
                 instan.transform.parent = maze_holder.transform;

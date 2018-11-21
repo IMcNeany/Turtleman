@@ -1,0 +1,50 @@
+All rights Kazim Saatçi (ice kazim) belongs.
+
+Commercially coding allowed these models to be downloaded for free.
+
+For use as a commercial (http://www.turbosquid.com/search/artists/ice-kaz I)
+
+You can buy a licensed packing payable in $ 1.
+  
+These models blender (2.73.) was established.
+
+Thank you.
+
+......................................................................................................
+
+
+Tüm haklarý Kazým Saatci (ice kazim)  aittir.
+
+Bedava olarak indirilen bu modelleri Ticari olarak kullanamassýnýz.
+
+Ticari olarak kullanmak için (http://www.turbosquid.com/Search/Artists/ice-kazim) 
+
+1 dolar karsýlýgýnda  lisanslý olarak satýn alabilirsiniz.
+  
+bu modeller  blender(2.73.)ile yapýlmýstýr.
+
+Teþekkür ederim.
+
+
+Rock_1...................554.polygon
+                        .279.vertices.
+
+Rock_4...................526.polygon.
+                        .265.vertices.
+
+Rock_5...................516.polygon.
+                        .260.vertices.
+
+Rock_6...................1024.polygon.
+                        .514.vertices.
+
+Rock_7...................800.polygon.
+                        .402.vertices.
+
+2048*2048.texture.
+
+OBJ,FBX,BLEND  FORMAT MODEL,
+
+LOW POLYGON  MODELS.
+
+GAME READY.
