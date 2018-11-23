@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     {
         controllerPos.x = Input.GetAxis("Horizontal_1") * Time.deltaTime * Movespeed;
         controllerPos.z = Input.GetAxis("Vertical_1") * Time.deltaTime * RotateSpeed;
+        
         //controllerPos.Normalize();
 
         if(Input.GetButton("X_1"))
@@ -30,6 +31,20 @@ public class PlayerController : MonoBehaviour {
 
         anim.SetFloat("Horizontal", controllerPos.x);
         anim.SetFloat("Vertical", controllerPos.z);
+
+        if (controllerPos.z > 0.009f)
+        {
+            Debug.Log("running");
+            //when player is moving
+            anim.SetBool("Running", true);
+        }
+        if(controllerPos.z == 0)
+        {
+            Debug.Log("Standing still");
+            //comes to a stop
+            anim.SetBool("Running", false);
+        }
+      
 
         //anim.SetFloat("Horizontal", (x * 10));
         //anim.SetFloat("Vertical", (z * 10));

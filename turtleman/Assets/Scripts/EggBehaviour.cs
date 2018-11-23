@@ -23,10 +23,15 @@ public class EggBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (startHatch)
+        if (startHatch && life < (hatchTime/2))
         {
             life += Time.deltaTime;
             transform.rotation = new Quaternion(Mathf.Sin(Time.time * 5.0f) * 0.15f, transform.rotation.y, transform.rotation.z,1.0f);
+        }
+        else
+        {
+            life += Time.deltaTime;
+            transform.rotation = new Quaternion(Mathf.Sin(Time.time * 8.0f) * 0.1f, transform.rotation.y, Mathf.Sin(Time.time * 8.0f) * 0.1f, 1.0f);
         }
         if(life > hatchTime)
         {
@@ -36,11 +41,11 @@ public class EggBehaviour : MonoBehaviour {
             startHatch = false;
             eggRenderer.enabled = false;
             //spawn enemy
-            Instantiate(turtle, gameObject.transform.position, gameObject.transform.rotation);
+           
             //delete this
 
             Destroy(gameObject,3.0f);
-
+            Instantiate(turtle, gameObject.transform.position, gameObject.transform.rotation);
         }
 	}
 
