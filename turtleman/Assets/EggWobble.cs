@@ -8,12 +8,19 @@ public class EggWobble : MonoBehaviour
 
     private bool shake = false;
     [SerializeField] private float shakeAmount = 5;
+    Vector3 originalPos;
+
+    private void Start()
+    {
+        originalPos = transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (shake == true)
         {
-            Vector3 newPos = Random.insideUnitSphere * (Time.deltaTime * shakeAmount);
+            Vector3 newPos = originalPos + Random.insideUnitSphere * (Time.deltaTime * shakeAmount);
             newPos.y = transform.position.y;
             newPos.z = transform.position.z;
 
@@ -29,7 +36,6 @@ public class EggWobble : MonoBehaviour
 
     IEnumerator ShakeMe()
     {
-        Vector3 originalPos = transform.position;
         if (shake == false)
         {
             shake = true;
