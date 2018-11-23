@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -319,9 +319,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114849476937611126, guid: 7da098f75212b1b4b9567bfcb6eae42e,
-          type: 2}
-        m_MethodName: GameOver
+      - m_Target: {fileID: 519327427}
+        m_MethodName: Shake
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -516,6 +515,7 @@ GameObject:
   - component: {fileID: 519327424}
   - component: {fileID: 519327426}
   - component: {fileID: 519327425}
+  - component: {fileID: 519327427}
   m_Layer: 5
   m_Name: EggImage
   m_TagString: Untagged
@@ -578,6 +578,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519327423}
   m_CullTransparentMesh: 1
+--- !u!114 &519327427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519327423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c93c39d5ff76345bc3579e9c62d518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmount: 5
 --- !u!1 &682454659
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +799,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &998334973
 GameObject:
@@ -1223,7 +1235,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4787914825591624, guid: d01024c99058c7b4eb683133723f60e2, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1686192206056514, guid: d01024c99058c7b4eb683133723f60e2, type: 2}
       propertyPath: m_Name
