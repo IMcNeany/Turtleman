@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
         }
         if(controllerPos.z == 0)
         {
-            Debug.Log("Standing still");
+
             //comes to a stop
             anim.SetBool("Running", false);
         }

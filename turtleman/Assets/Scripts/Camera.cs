@@ -54,7 +54,11 @@ public class Camera : MonoBehaviour
 
             if (Physics.Linecast(target.position, hitPosition, out hit))
             {
-                tempDistance = hit.distance;
+                if (hit.transform != target.transform)
+                {
+                    tempDistance = hit.distance;
+                    Debug.Log(hit.transform.name);
+                }
             }
             if (tempDistance > distance)
             {
