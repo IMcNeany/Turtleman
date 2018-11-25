@@ -149,18 +149,24 @@ public class GenerateMaze : MonoBehaviour
 
     private void InstantiateMaze()
     {
+        bool gate = false;
         for(int i = 0; i < maze_data.Length; i++)
         {
             switch(maze_data[i])
             {
                 case "....": // wall
-                    maze[i] = tile[0];
+                    if(!gate)
+                    {
+                        maze[i] = tile[2];
+                        gate = true;
+                    }
+                    else
+                    {
+                        maze[i] = tile[0];
+                    }
                     break;
                 case "==": // empty tile
                     maze[i] = tile[1];
-                    break;
-                case " ":
-                    maze[i] = tile[2];
                     break;
             }            
         }
@@ -175,7 +181,7 @@ public class GenerateMaze : MonoBehaviour
                 {
                     instan.transform.position = new Vector3(instan.transform.position.x, 2.5f, instan.transform.position.z);
                 }
-                if (maze[index] == tile[0])
+                if (maze[index] == tile[2])
                 {
                     if(!has_set_player) // check to spawn player on first open floor 
                     {

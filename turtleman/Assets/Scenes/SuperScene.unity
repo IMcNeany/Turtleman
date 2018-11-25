@@ -1107,13 +1107,31 @@ Prefab:
     - target: {fileID: 114759893482745800, guid: 956e0177998600e4e82e9f9309677166,
         type: 2}
       propertyPath: scale
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114759893482745800, guid: 956e0177998600e4e82e9f9309677166,
         type: 2}
       propertyPath: egg
       value: 
       objectReference: {fileID: 1042997997796770, guid: e61c332b8fbad274695c1929bb38fc08,
+        type: 2}
+    - target: {fileID: 114759893482745800, guid: 956e0177998600e4e82e9f9309677166,
+        type: 2}
+      propertyPath: tile.Array.data[0]
+      value: 
+      objectReference: {fileID: 1021942889714420, guid: 60d8079edd7083e40a4e9b17bb5a2b7e,
+        type: 2}
+    - target: {fileID: 114759893482745800, guid: 956e0177998600e4e82e9f9309677166,
+        type: 2}
+      propertyPath: tile.Array.data[1]
+      value: 
+      objectReference: {fileID: 1354925668858162, guid: 00f2bd89c509c4f4fba35896da2a2160,
+        type: 2}
+    - target: {fileID: 114759893482745800, guid: 956e0177998600e4e82e9f9309677166,
+        type: 2}
+      propertyPath: tile.Array.data[2]
+      value: 
+      objectReference: {fileID: 1021942889714420, guid: 0d61b3a5e6b311740975b30260b737d5,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 956e0177998600e4e82e9f9309677166, type: 2}
