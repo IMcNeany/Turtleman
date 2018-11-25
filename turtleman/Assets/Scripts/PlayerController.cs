@@ -36,14 +36,21 @@ public class PlayerController : MonoBehaviour {
         {
             Debug.Log("running");
             //when player is moving
+            anim.SetBool("RunningBackwards", false);
             anim.SetBool("Running", true);
         }
-        if(controllerPos.z == 0)
+        else if (controllerPos.z < -0.01f)
         {
-
+            anim.SetBool("Running", true);
+            anim.SetBool("RunningBackwards", true);
+        }
+        else if (controllerPos.z == 0)
+        {
+            anim.SetBool("RunningBackwards", false);
             //comes to a stop
             anim.SetBool("Running", false);
         }
+       
       
 
         //anim.SetFloat("Horizontal", (x * 10));
