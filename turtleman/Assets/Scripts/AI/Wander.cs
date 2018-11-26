@@ -10,7 +10,7 @@ public class Wander : MonoBehaviour {
 
     private float speed = 5.0f;
     public float acquisitionRadius = 5.0f;
-    private List<Node> path;
+    public List<Node> path;
     private int pathIndex = 0;
     private bool waitingForPath = false;
     private bool closeRange = false;
