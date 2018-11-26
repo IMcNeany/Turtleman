@@ -1279,6 +1279,11 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 28873541}
+    - target: {fileID: 114111017674270344, guid: d01024c99058c7b4eb683133723f60e2,
+        type: 2}
+      propertyPath: cam_height
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d01024c99058c7b4eb683133723f60e2, type: 2}
   m_IsPrefabAsset: 0

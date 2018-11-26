@@ -11,6 +11,7 @@ public class Camera : MonoBehaviour
     public float distanceMax = 15f;
     public float yMinLimit = -20f;
     public float yMaxLimit = 80f;
+    public float cam_height = 2.0f;
     public float x = 0.0f;
     public float y = 0.0f;
     public bool testCam;
@@ -51,9 +52,11 @@ public class Camera : MonoBehaviour
 
             RaycastHit hit;
             Vector3 hitPosition = transform.position - transform.forward;
-
-            if (Physics.Linecast(target.position, hitPosition, out hit))
+            Vector3 target_offset = target.position;
+            target_offset.y = 1.0f;
+            if (Physics.Linecast(target_offset, hitPosition, out hit))
             {
+                Debug.DrawLine(target_offset, hitPosition);
                 if (hit.transform != target.transform)
                 {
                     tempDistance = hit.distance;
@@ -67,7 +70,7 @@ public class Camera : MonoBehaviour
 
             Vector3 negDistance = new Vector3(0.0f, 0.0f, -tempDistance);
             Vector3 position = rotation * negDistance + target.position;
-            position.y = 3;
+            position.y = cam_height;
 
 
             transform.rotation = rotation;
