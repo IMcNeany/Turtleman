@@ -51,7 +51,8 @@ public class Wander : MonoBehaviour {
             Vector3 target = path[pathIndex].transform.position;
             target.y = groundOffset;
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            //transform.LookAt(transform.position - target);
+            transform.LookAt(target);
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
             anim.SetBool("moving", true);
             if (roundVec(transform.position, 0.2f) == roundVec(target, 0.2f)){
                 pathIndex++;
