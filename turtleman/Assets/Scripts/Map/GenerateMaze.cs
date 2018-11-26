@@ -12,7 +12,7 @@ public class GenerateMaze : MonoBehaviour
     public GameObject[] tile;
     public GameObject egg;
     public bool debug = false; //display maze visual
-    public int number_of_starting_eggs = 5;
+    public int num_eggs = 5;
 
     private string[] maze_data;
     private string msg = "";
@@ -99,7 +99,7 @@ public class GenerateMaze : MonoBehaviour
         maze_data = new string[row * col];
         maze_holder = GameObject.Find("MazeHolder");
         player = GameObject.FindGameObjectWithTag("Player");
-        egg_count = number_of_starting_eggs;
+        egg_count = num_eggs;
         eggs = new GameObject[egg_count];
 
         // default to walls surrounding a single empty cell
@@ -153,15 +153,18 @@ public class GenerateMaze : MonoBehaviour
             for(int j = 0; j < row; j++)
             {
                 instan = Instantiate(maze[index], (new Vector3(j * scale, 0.1f, i * scale)), Quaternion.identity);
-                if(maze[index] == tile[1])
+                if(maze[index] == tile[0])
                 {
-                    instan.transform.position = new Vector3(instan.transform.position.x, 2.5f, instan.transform.position.z);
-                    if (egg_count > 0 && (index >= (row * 4)) && Random.Range(0,9) == 0)
+                    if (egg_count > 0 && (index >= (row * 4)) && Random.Range(0, 9) == 0)
                     {
                         eggs[egg_index] = Instantiate(egg, instan.transform.position, Quaternion.identity);
                         egg_count--;
                         egg_index++;
                     }
+                }
+                if(maze[index] == tile[1])
+                {
+                    instan.transform.position = new Vector3(instan.transform.position.x, 2.5f, instan.transform.position.z);
                 }
                 if (maze[index] == tile[2])
                 {
