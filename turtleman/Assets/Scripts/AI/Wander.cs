@@ -7,6 +7,7 @@ public class Wander : MonoBehaviour {
     public float maxWaitTime = 5.0f;
     public float baseSpeed = 5.0f;
     public float groundOffset = 0.15f;
+    public float attackSpeed = 2.0f;
 
     private float speed = 5.0f;
     public float acquisitionRadius = 5.0f;
@@ -54,7 +55,6 @@ public class Wander : MonoBehaviour {
         if (closeRange)
         {
             anim.SetBool("moving", false);
-            anim.SetBool("attacking", true);
             chomp();
 
             if (!timerStarted) {
@@ -109,8 +109,9 @@ public class Wander : MonoBehaviour {
     }
 
     private void chomp() {
-        if (Time.time - startTime > 5.0f)
+        if (Time.time - startTime >= attackSpeed)
         {
+            anim.SetBool("attacking", true);
             startTime = Time.time;
             transform.LookAt(player.transform.position);
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
