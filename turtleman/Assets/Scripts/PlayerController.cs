@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public int health;
     public float Movespeed;
     public float RotateSpeed;
+    bool canMove = true;
     void Start()
     {
         health = 3;
@@ -18,8 +19,12 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-        controllerPos.x = Input.GetAxis("Horizontal_1") * Time.deltaTime * Movespeed;
-        controllerPos.z = Input.GetAxis("Vertical_1") * Time.deltaTime * RotateSpeed;
+        if(health > 0)
+        {
+            controllerPos.x = Input.GetAxis("Horizontal_1") * Time.deltaTime * Movespeed;
+            controllerPos.z = Input.GetAxis("Vertical_1") * Time.deltaTime * RotateSpeed;
+        }
+        
         
         //controllerPos.Normalize();
 
@@ -54,17 +59,24 @@ public class PlayerController : MonoBehaviour {
             anim.SetBool("Running", false);
         }
 
-
+        if (health <= 0)
+        {
+            anim.SetBool("Death", true);
+        }
 
         //anim.SetFloat("Horizontal", (x * 10));
         //anim.SetFloat("Vertical", (z * 10));
         //transform.Rotate(0, controllerPos.x , 0);
-       // transform.Translate(0, 0, controllerPos.z);
-       // healthRef.Health = 3;
-        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
-        transform.position += camera.transform.forward * controllerPos.z;
+        // transform.Translate(0, 0, controllerPos.z);
+        // healthRef.Health = 3;
+        if (health > 0)
+        {
+            GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+            transform.position += camera.transform.forward * controllerPos.z;
+            transform.localRotation = camera.transform.localRotation;
+        }
         // transform.LookAt(camera.transform.localRotation.eulerAngles);
-        transform.localRotation = camera.transform.localRotation;
+       
         //transform.Translate(transform.position + camera.transform.forward * controllerPos.z);
         //transform.Rotate(0, camera.transform.rotation.x, 0);
     }
