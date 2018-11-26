@@ -7,6 +7,7 @@ public class Wander : MonoBehaviour {
     public float maxWaitTime = 5.0f;
     public float baseSpeed = 5.0f;
     public float groundOffset = 0.15f;
+    public float attackSpeed = 2.0f;
 
     private float speed = 5.0f;
     public float acquisitionRadius = 5.0f;
@@ -20,8 +21,12 @@ public class Wander : MonoBehaviour {
     private Animator anim;
     private Rigidbody rb;
 
+    private float startTime;
+    private bool timerStarted = false;
+
     public void setClose(bool b) {
-       //closeRange = b;
+        if (b) timerStarted = false;
+        closeRange = b;
     }
 
     public void playerAquired(GameObject player){
@@ -47,7 +52,17 @@ public class Wander : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(path != null && path.Count > 0){
+        if (closeRange)
+        {
+            anim.SetBool("moving", false);
+            chomp();
+
+            if (!timerStarted) {
+                startTime = Time.time;
+                timerStarted = true;
+            }
+        } else if(path != null && path.Count > 0){
+            anim.SetBool("attacking", false);
             Vector3 target = path[pathIndex].transform.position;
             target.y = groundOffset;
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
@@ -64,6 +79,7 @@ public class Wander : MonoBehaviour {
                 }
             }  
         } else if(!waitingForPath){
+            anim.SetBool("attacking", false);
             anim.SetBool("moving", false);
             if(player == null){
                 Invoke("findNewRandomPath", Random.Range(1.0f, maxWaitTime));
@@ -90,6 +106,18 @@ public class Wander : MonoBehaviour {
              Mathf.Round(vector.x / roundTo) * roundTo,
              Mathf.Round(vector.y / roundTo) * roundTo,
              Mathf.Round(vector.z / roundTo) * roundTo);
+    }
+
+    private void chomp() {
+        if (Time.time - startTime >= attackSpeed)
+        {
+            anim.SetBool("attacking", true);
+            startTime = Time.time;
+            transform.LookAt(player.transform.position);
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+            Debug.Log("C H O M P");
+            //player->hit
+        }
     }
 
     
