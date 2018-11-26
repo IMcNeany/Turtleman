@@ -8,6 +8,7 @@ TagManager:
   - Generated
   - WaypointGrid
   - UIManager
+  - Egg
   layers:
   - Default
   - TransparentFX

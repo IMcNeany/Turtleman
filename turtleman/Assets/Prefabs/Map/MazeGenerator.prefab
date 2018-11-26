@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4307014223525788}
   - component: {fileID: 114759893482745800}
+  - component: {fileID: 114070963030806404}
   m_Layer: 0
   m_Name: MazeGenerator
   m_TagString: Untagged
@@ -69,6 +70,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114070963030806404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1820873975303356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4c6d1e875b9d499cb74f18ea25f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  egg: {fileID: 1042997997796770, guid: e61c332b8fbad274695c1929bb38fc08, type: 2}
+  egg_max: 4
+  cool_down: 15
 --- !u!114 &114759893482745800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,9 +97,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   row: 15
   col: 15
-  scale: 5
+  scale: 10
+  floor_tile_count: 0
   tile:
-  - {fileID: 1508487401054508, guid: f170b7e746e975a4d8e91f4b27ba45c2, type: 2}
-  - {fileID: 1293557106302150, guid: bb36588ad4b33d14a8eba96e61292483, type: 2}
-  - {fileID: 1554525299615022, guid: 93550f8644d0b3848a1c6a903971f7fa, type: 2}
-  debug: 1
+  - {fileID: 1021942889714420, guid: 60d8079edd7083e40a4e9b17bb5a2b7e, type: 2}
+  - {fileID: 1354925668858162, guid: 00f2bd89c509c4f4fba35896da2a2160, type: 2}
+  - {fileID: 1021942889714420, guid: 0d61b3a5e6b311740975b30260b737d5, type: 2}
+  debug: 0

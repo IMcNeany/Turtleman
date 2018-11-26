@@ -8,17 +8,14 @@ public class GenerateMaze : MonoBehaviour
     public int row = 15;
     public int col = 15;
     public int scale = 5;
+    public int floor_tile_count = 0;
 
     public GameObject[] tile;
-    public GameObject egg;
     public bool debug = false; //display maze visual
-    public int num_eggs = 5;
 
     private string[] maze_data;
     private string msg = "";
     private int[,] data;
-    private GameObject[] eggs;
-    private int egg_count = 5;
     private float placementThreshold;
     private bool has_set_player = false;
     private GameObject[] maze;
@@ -80,6 +77,7 @@ public class GenerateMaze : MonoBehaviour
                 {
                     msg += "....";
                     temp = "....";
+                    floor_tile_count++;
                 }
                 else
                 {
@@ -99,8 +97,6 @@ public class GenerateMaze : MonoBehaviour
         maze_data = new string[row * col];
         maze_holder = GameObject.Find("MazeHolder");
         player = GameObject.FindGameObjectWithTag("Player");
-        egg_count = num_eggs;
-        eggs = new GameObject[egg_count];
 
         // default to walls surrounding a single empty cell
         data = new int[,]
@@ -111,6 +107,9 @@ public class GenerateMaze : MonoBehaviour
         };
         
         PopulateMaze();
+
+        gameObject.GetComponent<EggSpawner>().Init(floor_tile_count);
+
         InstantiateMaze();
     }
 
@@ -129,25 +128,25 @@ public class GenerateMaze : MonoBehaviour
         {
             switch(maze_data[i])
             {
-                case "....": // wall
+                case "....": 
                     if(!gate)
                     {
-                        maze[i] = tile[2];
+                        maze[i] = tile[2]; // start tile
                         gate = true;
                     }
                     else
                     {
-                        maze[i] = tile[0];
+                        maze[i] = tile[0]; // floor tile                      
                     }
                     break;
-                case "==": // empty tile
-                    maze[i] = tile[1];
+                case "==": 
+                    maze[i] = tile[1]; // wall
                     break;
-            }            
+            }
         }
-
+        
         int index = 0;
-        int egg_index = 0;
+
         for(int i = 0; i < col; i++)
         {
             for(int j = 0; j < row; j++)
@@ -155,12 +154,8 @@ public class GenerateMaze : MonoBehaviour
                 instan = Instantiate(maze[index], (new Vector3(j * scale, 0.1f, i * scale)), Quaternion.identity);
                 if(maze[index] == tile[0])
                 {
-                    if (egg_count > 0 && (index >= (row * 4)) && Random.Range(0, 9) == 0)
-                    {
-                        eggs[egg_index] = Instantiate(egg, instan.transform.position, Quaternion.identity);
-                        egg_count--;
-                        egg_index++;
-                    }
+                    gameObject.GetComponent<EggSpawner>().CopyOfMaze(instan);
+                    gameObject.GetComponent<EggSpawner>().AddEggAtStart(instan, row, index);
                 }
                 if(maze[index] == tile[1])
                 {
@@ -179,5 +174,6 @@ public class GenerateMaze : MonoBehaviour
                 index++;
             }
         }
+        gameObject.GetComponent<EggSpawner>().ClearInit();
     }
 }
