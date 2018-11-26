@@ -95,10 +95,10 @@ public class Grid : MonoBehaviour {
 	}
 
 	private Node getNodeFromPosition(Vector3 position){
-        int gridX = (int)(position.x / nodeDiameter) + 1;
-        int gridY = (int)(position.z / nodeDiameter) + 1;
+        int gridX = Mathf.RoundToInt(position.x / nodeDiameter);
+        int gridY = Mathf.RoundToInt(position.z / nodeDiameter);
 
-        int index = gridX + (gridY * rows);
+        int index = (int)gridX + (gridY * rows);
         Node node = null;
     
         if (index < nodes.Length - 1) {

@@ -47,16 +47,11 @@ public class Wander : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (closeRange){
-            Vector3 target = player.transform.position;
-            target.y = groundOffset;
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            
-        } else if(path != null && path.Count > 0){
+        if(path != null && path.Count > 0){
             Vector3 target = path[pathIndex].transform.position;
             target.y = groundOffset;
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            transform.LookAt(transform.position - target);
+            //transform.LookAt(transform.position - target);
             anim.SetBool("moving", true);
             if (roundVec(transform.position, 0.2f) == roundVec(target, 0.2f)){
                 pathIndex++;
@@ -79,7 +74,7 @@ public class Wander : MonoBehaviour {
                 }
             }
         }
-        transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
+        rb.velocity = Vector3.zero;
 	}
 
     private void findNewRandomPath()
