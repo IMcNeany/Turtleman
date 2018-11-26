@@ -15,6 +15,9 @@ public class UI_Manager : MonoBehaviour
     public Text ScoreText;
     public int EggCount = 0;
 
+    GameObject player;
+    PlayerController playercon;
+
     //[Header("Timer Values")]
     //[SerializeField]
     //private Text TimerText;
@@ -27,7 +30,8 @@ public class UI_Manager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        player = GameObject.FindWithTag("Player");
+        playercon = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -40,7 +44,7 @@ public class UI_Manager : MonoBehaviour
 
     private void UIStuff()
     {
-        switch (Health)
+        switch (playercon.getHealth())
         {
             case 0:
                 HP1.enabled = false;

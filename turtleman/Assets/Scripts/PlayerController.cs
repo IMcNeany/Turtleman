@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour {
     public Animator anim;
     public Vector3 controllerPos;
     private UI_Manager healthRef;
+    public int health;
     public float Movespeed;
     public float RotateSpeed;
     void Start()
     {
+        health = 3;
         healthRef = gameObject.GetComponent<UI_Manager>();
     }
 
@@ -65,5 +67,15 @@ public class PlayerController : MonoBehaviour {
         transform.localRotation = camera.transform.localRotation;
         //transform.Translate(transform.position + camera.transform.forward * controllerPos.z);
         //transform.Rotate(0, camera.transform.rotation.x, 0);
+    }
+
+    public void setHealth(int healthr)
+    {
+        health = healthr;
+    }
+
+    public int getHealth()
+    {
+        return health;
     }
 }
