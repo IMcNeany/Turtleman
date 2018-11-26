@@ -6,11 +6,12 @@ public class PlayerController : MonoBehaviour {
 
     public Animator anim;
     public Vector3 controllerPos;
+    private UI_Manager healthRef;
     public float Movespeed;
     public float RotateSpeed;
     void Start()
     {
-
+        healthRef = gameObject.GetComponent<UI_Manager>();
     }
 
     void Update()
@@ -50,15 +51,19 @@ public class PlayerController : MonoBehaviour {
             //comes to a stop
             anim.SetBool("Running", false);
         }
-       
-      
+
+
 
         //anim.SetFloat("Horizontal", (x * 10));
         //anim.SetFloat("Vertical", (z * 10));
-        transform.Rotate(0, controllerPos.x, 0);
-        transform.Translate(0, 0, controllerPos.z);
-
-       
-
+        //transform.Rotate(0, controllerPos.x , 0);
+       // transform.Translate(0, 0, controllerPos.z);
+       // healthRef.Health = 3;
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        transform.position += camera.transform.forward * controllerPos.z;
+        // transform.LookAt(camera.transform.localRotation.eulerAngles);
+        transform.localRotation = camera.transform.localRotation;
+        //transform.Translate(transform.position + camera.transform.forward * controllerPos.z);
+        //transform.Rotate(0, camera.transform.rotation.x, 0);
     }
 }
