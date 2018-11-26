@@ -57,7 +57,7 @@ public class Camera : MonoBehaviour
             if (Physics.Linecast(target_offset, hitPosition, out hit))
             {
                 Debug.DrawLine(target_offset, hitPosition);
-                if (hit.transform != target.transform)
+                if (hit.transform != target.transform && hit.transform.name != "Evil Turtle(Clone)")
                 {
                     tempDistance = hit.distance;
                     Debug.Log(hit.transform.name);
