@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23508151919996080}
   - component: {fileID: 64737207929724510}
   m_Layer: 0
-  m_Name: Test Entrance
+  m_Name: Entrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 33451522861801824}
   - component: {fileID: 23611904585859824}
   - component: {fileID: 65021353879191460}
+  - component: {fileID: 114168991083941760}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -1430,6 +1431,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4707, y: 4.8977, z: 2.6583}
   m_Center: {x: 0.05645001, y: 2.3395498, z: 0.15315002}
+--- !u!114 &114168991083941760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1150628973935876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1852bf542fa34c545b29882b560db4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114238999465678772
 MonoBehaviour:
   m_ObjectHideFlags: 1

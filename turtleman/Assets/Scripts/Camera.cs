@@ -60,7 +60,7 @@ public class Camera : MonoBehaviour
                 if (hit.transform != target.transform && hit.transform.name != "Evil Turtle(Clone)")
                 {
                     tempDistance = hit.distance;
-                    Debug.Log(hit.transform.name);
+                    //Debug.Log(hit.transform.name);
                 }
             }
             if (tempDistance > distance)

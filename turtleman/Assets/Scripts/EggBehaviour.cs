@@ -20,8 +20,8 @@ public class EggBehaviour : MonoBehaviour
     {
         startHatch = true;
         eggRenderer = gameObject.GetComponent<MeshRenderer>();
-        ui_manager = gameObject.GetComponent<UI_Manager>();
-        cltObject = gameObject.GetComponent<EggWobble>();
+        ui_manager = GameObject.Find("UI_Manager").GetComponent<UI_Manager>();
+        cltObject = GameObject.Find("EggImage").GetComponent<EggWobble>();
 
     }
 
@@ -60,6 +60,7 @@ public class EggBehaviour : MonoBehaviour
         if (other.GetComponent<PlayerController>())
         {
             //add one to egg collection
+            Debug.Log("Collected Egg");
             ui_manager.EggCount = ui_manager.EggCount += 1;
             UIShake();
             Destroy(gameObject, 0.1f);

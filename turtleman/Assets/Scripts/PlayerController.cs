@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour {
 
         if (controllerPos.z > 0.009f)
         {
-            Debug.Log("running");
+            //Debug.Log("running");
             //when player is moving
             anim.SetBool("RunningBackwards", false);
             anim.SetBool("Running", true);

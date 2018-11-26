@@ -142,3 +142,4 @@ MonoBehaviour:
   gridX: 0
   gridY: 0
   parent: {fileID: 0}
+  walkable: 0

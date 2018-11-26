@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 23173975789312046}
   - component: {fileID: 65580615111968384}
   m_Layer: 0
-  m_Name: Test Wall
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
