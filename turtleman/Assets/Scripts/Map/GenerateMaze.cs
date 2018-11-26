@@ -12,13 +12,13 @@ public class GenerateMaze : MonoBehaviour
     public GameObject[] tile;
     public GameObject egg;
     public bool debug = false; //display maze visual
-    //public int number_of_starting_eggs = 5;
+    public int number_of_starting_eggs = 5;
 
     private string[] maze_data;
     private string msg = "";
     private int[,] data;
-    //private int[] eggs;
-    //private int egg_count = 5;
+    private GameObject[] eggs;
+    private int egg_count = 5;
     private float placementThreshold;
     private bool has_set_player = false;
     private GameObject[] maze;
@@ -99,8 +99,8 @@ public class GenerateMaze : MonoBehaviour
         maze_data = new string[row * col];
         maze_holder = GameObject.Find("MazeHolder");
         player = GameObject.FindGameObjectWithTag("Player");
-        //egg_count = number_of_starting_eggs;
-        //eggs = new int[number_of_starting_eggs];
+        egg_count = number_of_starting_eggs;
+        eggs = new GameObject[egg_count];
 
         // default to walls surrounding a single empty cell
         data = new int[,]
@@ -111,33 +111,8 @@ public class GenerateMaze : MonoBehaviour
         };
         
         PopulateMaze();
-        //LoadFromFile();
         InstantiateMaze();
     }
-
-    //private void LoadFromFile()
-    //{
-        //int rand = Random.Range(0, 4);
-        //string path = "Assets/LevelsFiles/LevelData" + rand + ".txt";
-        //Debug.Log("Loading Level: " + rand);
-        //StreamReader sr = new StreamReader(path);
-        //int count = 0;
-
-        //for (int i = 0; i < col; i++)
-        //{
-        //    string line;
-        //    line = sr.ReadLine();
-        //    char[] c = new char[line.Length];
-
-        //    for (int j = 0; j < line.Length; j++)
-        //    {
-        //        c[j] = line[j];
-        //        maze_data[count] = c[j];
-        //        count++;
-        //    }
-        //}
-        //sr.Close();
-    //}
 
     void OnGUI()
     {
@@ -172,6 +147,7 @@ public class GenerateMaze : MonoBehaviour
         }
 
         int index = 0;
+        int egg_index = 0;
         for(int i = 0; i < col; i++)
         {
             for(int j = 0; j < row; j++)
@@ -180,6 +156,12 @@ public class GenerateMaze : MonoBehaviour
                 if(maze[index] == tile[1])
                 {
                     instan.transform.position = new Vector3(instan.transform.position.x, 2.5f, instan.transform.position.z);
+                    if (egg_count > 0 && (index >= (row * 4)) && Random.Range(0,9) == 0)
+                    {
+                        eggs[egg_index] = Instantiate(egg, instan.transform.position, Quaternion.identity);
+                        egg_count--;
+                        egg_index++;
+                    }
                 }
                 if (maze[index] == tile[2])
                 {
@@ -188,14 +170,6 @@ public class GenerateMaze : MonoBehaviour
                         player.transform.position = instan.transform.position;
                         has_set_player = true;
                     }
-                    //if(index >= row * 5)
-                    //{
-                    //    if(egg_count > 0)
-                    //    {
-                    //        Instantiate(egg, instan.transform.position, Quaternion.identity);
-                    //        egg_count--;
-                    //    }
-                    //}
                 }
                 instan.name = "Tile: " + i + j;
                 instan.transform.parent = maze_holder.transform;
