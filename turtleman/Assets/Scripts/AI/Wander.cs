@@ -16,7 +16,7 @@ public class Wander : MonoBehaviour {
     private bool waitingForPath = false;
     private bool closeRange = false;
     private GameObject player;
-
+    private PlayerController pcontroller;
     private Grid grid;
     private Animator anim;
     private Rigidbody rb;
@@ -48,6 +48,8 @@ public class Wander : MonoBehaviour {
         grid = GameObject.FindGameObjectWithTag("WaypointGrid").GetComponent<Grid>();
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
+        pcontroller = GameObject.FindGameObjectWithTag
+            ("Player").GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -109,6 +111,8 @@ public class Wander : MonoBehaviour {
     }
 
     private void chomp() {
+
+        int playerCurrentHealth = pcontroller.getHealth();
         if (Time.time - startTime >= attackSpeed)
         {
             anim.SetBool("attacking", true);
@@ -116,7 +120,7 @@ public class Wander : MonoBehaviour {
             transform.LookAt(player.transform.position);
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
             Debug.Log("C H O M P");
-            //player->hit
+            pcontroller.setHealth(playerCurrentHealth -= 1);
         }
     }
 

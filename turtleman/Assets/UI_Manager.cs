@@ -8,6 +8,9 @@ public class UI_Manager : MonoBehaviour
     [Header("Health Values")]
     public int Health = 3;
     public Image HP1;
+    public ModelSizeFlash HP1Flashl;
+    public ModelSizeFlash HP1Flash2;
+    public ModelSizeFlash HP1Flash3;
     public Image HP2;
     public Image HP3;
 
@@ -32,6 +35,13 @@ public class UI_Manager : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         playercon = player.GetComponent<PlayerController>();
+        HP1Flashl = HP1.GetComponent<ModelSizeFlash>();
+        HP1Flash2 = HP2.GetComponent<ModelSizeFlash>();
+        HP1Flash3 = HP3.GetComponent<ModelSizeFlash>();
+
+        HP1Flashl.pulsate = false;
+        HP1Flash2.pulsate = false;
+        HP1Flash3.pulsate = false;
     }
 
     // Update is called once per frame
@@ -55,16 +65,25 @@ public class UI_Manager : MonoBehaviour
                 HP1.enabled = true;
                 HP2.enabled = false;
                 HP3.enabled = false;
+                HP1Flash2.pulsate = false;
+                HP1Flash3.pulsate = false;
+                HP1Flashl.pulsate = true;
                 break;
             case 2:
                 HP1.enabled = true;
                 HP2.enabled = true;
                 HP3.enabled = false;
+                HP1Flashl.pulsate = false;
+                HP1Flash2.pulsate = true;
+                HP1Flash3.pulsate = false;
                 break;
             case 3:
                 HP1.enabled = true;
                 HP2.enabled = true;
                 HP3.enabled = true;
+                HP1Flash3.pulsate = true;
+                HP1Flashl.pulsate = false;
+                HP1Flash2.pulsate = false;
                 break;
         }
         ScoreText.text = "" + EggCount;
