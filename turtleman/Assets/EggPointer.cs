@@ -23,6 +23,7 @@ public class EggPointer : MonoBehaviour {
                 }
             }
             gameObject.transform.LookAt(lookAtEgg.transform);
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         }
 	}
 }
