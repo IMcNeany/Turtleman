@@ -3638,6 +3638,12 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 114338989061491882, guid: e61c332b8fbad274695c1929bb38fc08,
+        type: 2}
+      propertyPath: turtle
+      value: 
+      objectReference: {fileID: 1566494702828342, guid: 9813396377bc2c542853589859f39ced,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e61c332b8fbad274695c1929bb38fc08, type: 2}
   m_IsPrefabAsset: 0

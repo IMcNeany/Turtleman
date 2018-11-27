@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     private bool hit;
     private UI_Manager uiManager;
     private float timer = 0;
+    public int chase_amount = 0;
 
     void Start()
     {
