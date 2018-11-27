@@ -27,6 +27,7 @@ public class Wander : MonoBehaviour {
     private float startTime;
     private bool timerStarted = false;
     private bool play_once = true;
+    private bool detect_player;
 
     public void setClose(bool b) {
         if (b) timerStarted = false;
@@ -38,13 +39,15 @@ public class Wander : MonoBehaviour {
         path = null;
         pathIndex = 0;
         speed = baseSpeed + 2.0f;
+        
     }
 
     public void deAquire(){
-        player = null;
         path = null;
         pathIndex = 0;
         speed = baseSpeed;
+        player.GetComponent<PlayerController>().chase_amount--;
+        player = null;
     }
 
 	// Use this for initialization
@@ -61,7 +64,9 @@ public class Wander : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (closeRange)
+
+    
+            if (closeRange)
         {
             anim.SetBool("moving", false);
             chomp();
@@ -96,7 +101,7 @@ public class Wander : MonoBehaviour {
                 play_once = true;
             }
             else {
-                if (Vector3.Distance(transform.position, player.transform.position) > 6.0f)
+                if (Vector3.Distance(transform.position, player.transform.position) > 5.0f)
                 {
                     if (play_once)
                     {
@@ -107,6 +112,7 @@ public class Wander : MonoBehaviour {
                     }
                     path = grid.findPath(transform.position, player.transform.position);
                 }
+
             }
         }
         rb.velocity = Vector3.zero;
