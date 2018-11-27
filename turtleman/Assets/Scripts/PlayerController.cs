@@ -104,7 +104,6 @@ public class PlayerController : MonoBehaviour {
         {
             GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
             transform.position += camera.transform.forward * controllerPos.z;
-            transform.position += camera.transform.right * controllerPos.x;
             transform.localRotation = camera.transform.localRotation;
         }
         // transform.LookAt(camera.transform.localRotation.eulerAngles);
