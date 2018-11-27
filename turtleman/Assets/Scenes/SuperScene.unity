@@ -1141,6 +1141,11 @@ Prefab:
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 983621440}
+    - target: {fileID: 114823368903480914, guid: 83feed13646d1b342ab35037d9362613,
+        type: 2}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 224400844}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83feed13646d1b342ab35037d9362613, type: 2}
   m_IsPrefabAsset: 0
