@@ -7,22 +7,28 @@ public class PlayerController : MonoBehaviour {
 
     public Animator anim;
     public Vector3 controllerPos;
-    public GameObject uiManager;
-    //private UI_Manager healthRef;
-    private SceneController gameOver;
+    public AudioSource audio;
+    public GameObject UI;
+
     
+    public float footstep_delay = 0.25f;
     public int health;
     public float Movespeed;
     public float RotateSpeed;
-    bool canMove = true;
-    public float footstep_delay = 0.25f;
+
+    private bool canMove = true;
     private float current_delay = 0.0f;
-    public AudioSource audio;
+    private SceneController gameOver;
+    private Color overlayColour;
+    private bool hit;
+    private UI_Manager uiManager;
+
     void Start()
     {
         health = 3;
-        //healthRef = gameObject.GetComponent<UI_Manager>();
         gameOver = gameObject.GetComponent<SceneController>();
+        uiManager = UI.GetComponent<UI_Manager>();
+        overlayColour = uiManager.redOverLay.color;
         PlayerPrefs.SetInt("HighScore", 0);
     }
 
@@ -39,15 +45,15 @@ public class PlayerController : MonoBehaviour {
 
         if(Input.GetButton("X_1"))
         {
-            anim.SetBool("Attack", true);
+           // anim.SetBool("Attack", true);
         }
         else
         {
-            anim.SetBool("Attack", false);
+            //anim.SetBool("Attack", false);
         }
 
-        anim.SetFloat("Horizontal", controllerPos.x);
-        anim.SetFloat("Vertical", controllerPos.z);
+        //anim.SetFloat("Horizontal", controllerPos.x);
+        //anim.SetFloat("Vertical", controllerPos.z);
 
         if (controllerPos.z > 0.009f)
         {
@@ -82,7 +88,7 @@ public class PlayerController : MonoBehaviour {
 
         if (health <= 0)
         {
-            PlayerPrefs.SetInt("HighScore", uiManager.GetComponent<UI_Manager>().EggCount);
+            PlayerPrefs.SetInt("HighScore", uiManager.EggCount);
             anim.SetBool("Death", true);
             //gameOver.GameOver();
             StartCoroutine(endGame());
@@ -100,13 +106,27 @@ public class PlayerController : MonoBehaviour {
             transform.localRotation = camera.transform.localRotation;
         }
         // transform.LookAt(camera.transform.localRotation.eulerAngles);
-       
+
         //transform.Translate(transform.position + camera.transform.forward * controllerPos.z);
         //transform.Rotate(0, camera.transform.rotation.x, 0);
+
+        if (hit)
+        {
+            overlayColour.a += 1.0f * Time.deltaTime;
+
+            if (overlayColour.a >= 0.5f)
+            {
+                overlayColour.a = 0.0f;
+                hit = false;
+            }
+
+            uiManager.redOverLay.color = overlayColour;
+        }
     }
 
     public void setHealth(int healthr)
     {
+        hit = true;
         health = healthr;
     }
 

@@ -53,7 +53,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 3
   HP1: {fileID: 0}
+  HP1Flashl: {fileID: 0}
+  HP1Flash2: {fileID: 0}
+  HP1Flash3: {fileID: 0}
   HP2: {fileID: 0}
   HP3: {fileID: 0}
+  redOverLay: {fileID: 0}
   ScoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
   EggCount: 0
+  Assistance: {fileID: 0}

@@ -34,7 +34,7 @@ public class CameraLerp : MonoBehaviour {
     }
         private IEnumerator CutsceneDelay()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(15);
         SceneManager.LoadScene(2);
 
 
