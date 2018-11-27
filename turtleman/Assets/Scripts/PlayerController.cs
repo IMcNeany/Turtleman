@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-    using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
     public Animator anim;
     public Vector3 controllerPos;
-    private UI_Manager healthRef;
+    public GameObject uiManager;
+    //private UI_Manager healthRef;
     private SceneController gameOver;
+    
     public int health;
     public float Movespeed;
     public float RotateSpeed;
@@ -19,8 +21,9 @@ public class PlayerController : MonoBehaviour {
     void Start()
     {
         health = 3;
-        healthRef = gameObject.GetComponent<UI_Manager>();
+        //healthRef = gameObject.GetComponent<UI_Manager>();
         gameOver = gameObject.GetComponent<SceneController>();
+        PlayerPrefs.SetInt("HighScore", 0);
     }
 
     void Update()
@@ -79,6 +82,7 @@ public class PlayerController : MonoBehaviour {
 
         if (health <= 0)
         {
+            PlayerPrefs.SetInt("HighScore", uiManager.GetComponent<UI_Manager>().EggCount);
             anim.SetBool("Death", true);
             //gameOver.GameOver();
             StartCoroutine(endGame());
