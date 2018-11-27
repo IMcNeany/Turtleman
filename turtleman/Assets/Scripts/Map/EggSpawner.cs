@@ -35,7 +35,9 @@ public class EggSpawner : MonoBehaviour
     {
         int tile = Random.Range(5, maze.Length - 5);
         float spawn_timer = Random.Range(30.0f, 60.0f);
-        basket[index] = Instantiate(egg, maze[tile].transform.position, Quaternion.identity);
+        Vector3 pos = new Vector3(maze[tile].transform.position.x, maze[tile].transform.position.y + 0.5f, maze[tile].transform.position.z);
+
+        basket[index] = Instantiate(egg, pos, Quaternion.identity);
         basket[index].GetComponent<EggBehaviour>().SetTimeToHatch(spawn_timer);
     }
 
@@ -50,9 +52,11 @@ public class EggSpawner : MonoBehaviour
         if ((index >= (row * 4)) &&
             Random.Range(0, 9) == 0 && egg_count < egg_max &&
             !basket[egg_index])
+
         {
+            Vector3 pos = new Vector3(instan.transform.position.x, instan.transform.position.y + 0.5f, instan.transform.position.z);
             basket[egg_index] = 
-                Instantiate(egg, instan.transform.position, Quaternion.identity);
+                Instantiate(egg, pos, Quaternion.identity);
 
             float spawn_timer = Random.Range(30.0f, 60.0f);
             basket[egg_index].GetComponent<EggBehaviour>().SetTimeToHatch(spawn_timer);

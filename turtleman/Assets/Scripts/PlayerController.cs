@@ -25,18 +25,37 @@ public class PlayerController : MonoBehaviour {
     private float timer = 0;
     public int chase_amount = 0;
 
+    DataPersistance gm;
+
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<DataPersistance>();
         mat.color = new Color(1.0f, 1.0f, 1.0f);
-        health = 3;
+
+        if (gm.firstTimeLoading == false)
+        {
+            health = gm.getPlayerHealth();
+        }
+        else
+        {
+            health = 3;
+            gm.setPlayerScore(0);
+            gm.firstTimeLoading = false;
+        }
+        
+        gm.setPlayerHealth(health);
+      
         gameOver = gameObject.GetComponent<SceneController>();
         uiManager = UI.GetComponent<UI_Manager>();
         PlayerPrefs.SetInt("HighScore", 0);
+       
     }
 
     void Update()
     {
-        if(health > 0)
+        gm.setPlayerHealth(health);
+
+        if (health > 0)
         {
             controllerPos.x = Input.GetAxis("Horizontal_1") * Time.deltaTime * RotateSpeed;
             controllerPos.z = Input.GetAxis("Vertical_1") * Time.deltaTime * RotateSpeed;
@@ -92,6 +111,7 @@ public class PlayerController : MonoBehaviour {
         {
             PlayerPrefs.SetInt("HighScore", uiManager.EggCount);
             anim.SetBool("Death", true);
+            gm.FlushData();
             //gameOver.GameOver();
             StartCoroutine(endGame());
         }
@@ -129,6 +149,7 @@ public class PlayerController : MonoBehaviour {
     {
         hit = true;
         health = healthr;
+       
     }
 
     public int getHealth()
