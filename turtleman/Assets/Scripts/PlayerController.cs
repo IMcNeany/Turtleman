@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
     {
         if(health > 0)
         {
-            controllerPos.x = Input.GetAxis("Horizontal_1") * Time.deltaTime * Movespeed;
+            controllerPos.x = Input.GetAxis("Horizontal_1") * Time.deltaTime * RotateSpeed;
             controllerPos.z = Input.GetAxis("Vertical_1") * Time.deltaTime * RotateSpeed;
         }
         
@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour {
         {
             GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
             transform.position += camera.transform.forward * controllerPos.z;
+            transform.position += camera.transform.right * controllerPos.x;
             transform.localRotation = camera.transform.localRotation;
         }
         // transform.LookAt(camera.transform.localRotation.eulerAngles);
