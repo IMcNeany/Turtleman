@@ -11,10 +11,18 @@ public class EggPointer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GameObject egg = GameObject.Find("Egg(Clone)");
+        GameObject[] egg = GameObject.FindGameObjectsWithTag("Egg");
         if (egg != null)
         {
-            gameObject.transform.LookAt(egg.transform);
+            GameObject lookAtEgg = egg[0];
+            for(int i = 0; i < egg.Length; i++)
+            {
+                if(Vector3.Distance(gameObject.transform.position, egg[i].transform.position) < Vector3.Distance(gameObject.transform.position, lookAtEgg.transform.position))
+                {
+                    lookAtEgg = egg[i];
+                }
+            }
+            gameObject.transform.LookAt(lookAtEgg.transform);
         }
 	}
 }
