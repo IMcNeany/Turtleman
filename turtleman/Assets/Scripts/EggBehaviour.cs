@@ -22,9 +22,14 @@ public class EggBehaviour : MonoBehaviour
     {
         startHatch = true;
         eggRenderer = gameObject.GetComponent<MeshRenderer>();
-        ui_manager = GameObject.Find("UI_Manager").GetComponent<UI_Manager>();
-        cltObject = GameObject.Find("EggImage").GetComponent<EggWobble>();
-
+        if (GameObject.Find("UI_Manager"))
+        {
+            ui_manager = GameObject.Find("UI_Manager").GetComponent<UI_Manager>();
+        }
+        if (GameObject.Find("EggImage"))
+        {
+            cltObject = GameObject.Find("EggImage").GetComponent<EggWobble>();
+        }
     }
 
     // Update is called once per frame

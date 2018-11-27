@@ -21,7 +21,7 @@ public class UI_Manager : MonoBehaviour
     public int EggCount = 0;
 
     public Text Assistance;
-
+    DataPersistance gm;
 
 
 
@@ -46,7 +46,7 @@ public class UI_Manager : MonoBehaviour
         HP1Flashl = HP1.GetComponent<ModelSizeFlash>();
         HP1Flash2 = HP2.GetComponent<ModelSizeFlash>();
         HP1Flash3 = HP3.GetComponent<ModelSizeFlash>();
-
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<DataPersistance>();
         HP1Flashl.pulsate = false;
         HP1Flash2.pulsate = false;
         HP1Flash3.pulsate = false;
@@ -96,6 +96,7 @@ public class UI_Manager : MonoBehaviour
                 break;
         }
         ScoreText.text = "" + EggCount;
+        gm.setPlayerScore(EggCount);
         //StartCoroutine(Delay());
     }
 
