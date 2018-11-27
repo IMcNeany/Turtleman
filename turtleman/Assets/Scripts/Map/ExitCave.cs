@@ -17,7 +17,7 @@ public class ExitCave : MonoBehaviour
 
     private void Update()
     {
-        if(ui.EggCount >= 1)
+        if(ui.EggCount >= 3)
         {
             can_exit = true;
         }
