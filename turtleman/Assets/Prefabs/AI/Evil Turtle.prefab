@@ -1628,8 +1628,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.3, y: 1, z: 6.3}
-  m_Center: {x: 0, y: 0, z: -1.5}
+  m_Size: {x: 3.5, y: 1, z: 4.5}
+  m_Center: {x: 0, y: 0, z: -0.3}
 --- !u!82 &82270104184652240
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1854,8 +1854,10 @@ MonoBehaviour:
   baseSpeed: 1
   groundOffset: 0.15
   attackSpeed: 2
+  speed: 1
   acquisitionRadius: 20
   path: []
+  UI: {fileID: 0}
   audio: {fileID: 82270104184652240}
   clips:
   - {fileID: 8300000, guid: d7e464cd4f4196a419e719a0a551af40, type: 3}
