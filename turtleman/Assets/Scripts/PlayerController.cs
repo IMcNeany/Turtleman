@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 
     void Start()
     {
+        mat.color = new Color(1.0f, 1.0f, 1.0f);
         health = 3;
         gameOver = gameObject.GetComponent<SceneController>();
         uiManager = UI.GetComponent<UI_Manager>();
