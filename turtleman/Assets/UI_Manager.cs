@@ -13,6 +13,7 @@ public class UI_Manager : MonoBehaviour
     public ModelSizeFlash HP1Flash3;
     public Image HP2;
     public Image HP3;
+    public Image redOverLay;
 
     [Header("Score Values")]
     public Text ScoreText;
