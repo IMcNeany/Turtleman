@@ -124,20 +124,27 @@ public class Wander : MonoBehaviour {
     }
 
     private void chomp() {
-
         int playerCurrentHealth = pcontroller.getHealth();
-        if (Time.time - startTime >= attackSpeed)
+        if (playerCurrentHealth > 0)
         {
-            anim.SetBool("attacking", true);
-            startTime = Time.time;
-            transform.LookAt(player.transform.position);
-            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
-            Debug.Log("C H O M P");
-            audio.clip = clips[3];
-            audio.Play();
-            pcontroller.setHealth(playerCurrentHealth -= 1);
+            if (Time.time - startTime >= attackSpeed)
+            {
+
+                anim.Play("Armature|attack2");
+                startTime = Time.time;
+                transform.LookAt(player.transform.position);
+                transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                Invoke("chomp2", 0.6f);
+            }
         }
     }
 
-    
+    public void chomp2()
+    {
+        int playerCurrentHealth = pcontroller.getHealth();
+        Debug.Log("C H O M P");
+        audio.clip = clips[3];
+        audio.Play();
+        pcontroller.setHealth(playerCurrentHealth -= 1);
+    }  
 }
