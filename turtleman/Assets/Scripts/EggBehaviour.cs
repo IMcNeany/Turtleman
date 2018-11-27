@@ -10,7 +10,8 @@ public class EggBehaviour : MonoBehaviour
     float speed = 1.0f;
     float strength = 1.0f;
     bool startHatch;
-    
+
+    public GameObject hatch_audio;
     public GameObject particleSystem;
     public GameObject turtle;
     MeshRenderer eggRenderer;
@@ -52,6 +53,7 @@ public class EggBehaviour : MonoBehaviour
 
             Destroy(gameObject, 3.0f);
             Instantiate(turtle, gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(hatch_audio);
         }
     }
 

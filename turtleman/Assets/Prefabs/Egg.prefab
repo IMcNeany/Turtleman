@@ -139,6 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e1b2e1464915c489efef6a7e18b6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hatch_audio: {fileID: 1885311613286420, guid: e1538a623f4edc74cb9ef84936e6f77a,
+    type: 2}
   particleSystem: {fileID: 1965530621584470}
   turtle: {fileID: 1869703495679452, guid: 8628d330667ca7f4d908d20d735a9159, type: 2}
 --- !u!198 &198850111435949474

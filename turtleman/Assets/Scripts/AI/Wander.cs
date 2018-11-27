@@ -21,8 +21,12 @@ public class Wander : MonoBehaviour {
     private Animator anim;
     private Rigidbody rb;
 
+    public AudioSource audio;
+    public List<AudioClip> clips;
+
     private float startTime;
     private bool timerStarted = false;
+    private bool play_once = true;
 
     public void setClose(bool b) {
         if (b) timerStarted = false;
@@ -86,9 +90,18 @@ public class Wander : MonoBehaviour {
             if(player == null){
                 Invoke("findNewRandomPath", Random.Range(1.0f, maxWaitTime));
                 waitingForPath = true;
-            } else {
+                play_once = true;
+            }
+            else {
                 if (Vector3.Distance(transform.position, player.transform.position) > 6.0f)
                 {
+                    if (play_once)
+                    {
+                        int rand = Random.Range(0, 2);
+                        audio.clip = clips[rand];
+                        audio.Play();
+                        play_once = false;
+                    }
                     path = grid.findPath(transform.position, player.transform.position);
                 }
             }
@@ -120,6 +133,8 @@ public class Wander : MonoBehaviour {
             transform.LookAt(player.transform.position);
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
             Debug.Log("C H O M P");
+            audio.clip = clips[3];
+            audio.Play();
             pcontroller.setHealth(playerCurrentHealth -= 1);
         }
     }
