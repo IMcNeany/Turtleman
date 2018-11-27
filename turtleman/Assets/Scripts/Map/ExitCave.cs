@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitCave : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class ExitCave : MonoBehaviour
         {
             //Exit to whatever stage
             Debug.Log("Exit Stage with " + ui.EggCount + " egg(s).");
+            SceneManager.LoadScene(2);
         }
     }
 }
