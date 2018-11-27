@@ -52,8 +52,11 @@ public class Wander : MonoBehaviour {
         grid = GameObject.FindGameObjectWithTag("WaypointGrid").GetComponent<Grid>();
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
-        pcontroller = GameObject.FindGameObjectWithTag
-            ("Player").GetComponent<PlayerController>();
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            pcontroller = GameObject.FindGameObjectWithTag
+                ("Player").GetComponent<PlayerController>();
+        }
 	}
 	
 	// Update is called once per frame
