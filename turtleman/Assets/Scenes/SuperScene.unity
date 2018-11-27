@@ -932,7 +932,7 @@ RectTransform:
   - {fileID: 519327424}
   - {fileID: 175181019}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1212,6 +1212,11 @@ Prefab:
       propertyPath: audio
       value: 
       objectReference: {fileID: 224400844}
+    - target: {fileID: 114823368903480914, guid: 83feed13646d1b342ab35037d9362613,
+        type: 2}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 983621440}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83feed13646d1b342ab35037d9362613, type: 2}
   m_IsPrefabAsset: 0
