@@ -6,14 +6,10 @@ public class Grid : MonoBehaviour {
 	public float nodeDiameter = 5.0f;
     public int rows;
     public int cols;
-    private int width;
-    private int height;
 
     public Node[] nodes;
 	// Use this for initialization
 	void Start () {
-        width = (int)(rows * nodeDiameter);
-        height = (int)(cols * nodeDiameter);
         Invoke("generateNodes", 1.0f);
 	}
 

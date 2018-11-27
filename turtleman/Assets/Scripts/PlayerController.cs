@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public Vector3 controllerPos;
     public AudioSource audio;
     public GameObject UI;
+    public Material mat;
 
     
     public float footstep_delay = 0.25f;
@@ -19,16 +20,15 @@ public class PlayerController : MonoBehaviour {
     private bool canMove = true;
     private float current_delay = 0.0f;
     private SceneController gameOver;
-    private Color overlayColour;
     private bool hit;
     private UI_Manager uiManager;
+    private float timer = 0;
 
     void Start()
     {
         health = 3;
         gameOver = gameObject.GetComponent<SceneController>();
         uiManager = UI.GetComponent<UI_Manager>();
-        overlayColour = uiManager.redOverLay.color;
         PlayerPrefs.SetInt("HighScore", 0);
     }
 
@@ -112,15 +112,14 @@ public class PlayerController : MonoBehaviour {
 
         if (hit)
         {
-            overlayColour.a += 1.0f * Time.deltaTime;
+            mat.color = new Color(1.0f, 0, 0);
+            timer += 1.0f * Time.deltaTime;
 
-            if (overlayColour.a >= 0.5f)
-            {
-                overlayColour.a = 0.0f;
+            if (timer >= 1.0f) {
+                mat.color = new Color(1.0f, 1.0f, 1.0f);
+                timer = 0;
                 hit = false;
             }
-
-            uiManager.redOverLay.color = overlayColour;
         }
     }
 
