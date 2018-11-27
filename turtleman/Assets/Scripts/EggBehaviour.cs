@@ -12,6 +12,7 @@ public class EggBehaviour : MonoBehaviour
     bool startHatch;
 
     public GameObject hatch_audio;
+    public GameObject pickup_audio;
     public GameObject particleSystem;
     public GameObject turtle;
     MeshRenderer eggRenderer;
@@ -71,6 +72,7 @@ public class EggBehaviour : MonoBehaviour
             Debug.Log("Collected Egg");
             ui_manager.EggCount = ui_manager.EggCount += 1;
             UIShake();
+            Instantiate(pickup_audio);
             Destroy(gameObject, 0.1f);
         }
     }
