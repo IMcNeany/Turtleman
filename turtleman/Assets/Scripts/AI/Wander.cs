@@ -5,12 +5,12 @@ using UnityEngine;
 public class Wander : MonoBehaviour {
 
     public float maxWaitTime = 5.0f;
-    public float baseSpeed = 5.0f;
+    public float baseSpeed = 1.0f;
     public float groundOffset = 0.15f;
     public float attackSpeed = 2.0f;
 
-    private float speed = 5.0f;
-    public float acquisitionRadius = 5.0f;
+    public float speed = 1.0f;
+    public float acquisitionRadius = 20.0f;
     public List<Node> path;
     private int pathIndex = 0;
     private bool waitingForPath = false;
@@ -20,7 +20,7 @@ public class Wander : MonoBehaviour {
     private Grid grid;
     private Animator anim;
     private Rigidbody rb;
-
+    public UI_Manager UI;
     public AudioSource audio;
     public List<AudioClip> clips;
 
@@ -38,7 +38,9 @@ public class Wander : MonoBehaviour {
         this.player = player;
         path = null;
         pathIndex = 0;
-        speed = baseSpeed + 2.0f;
+        int eggs = UI.EggCount;
+        speed = baseSpeed + 2.0f + (0.1f * eggs);
+        acquisitionRadius = 20.0f + eggs;
         
     }
 
@@ -52,6 +54,13 @@ public class Wander : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+
+        if (GameObject.Find("UI_Manager"))
+        {
+            UI = GameObject.Find("UI_Manager").GetComponent<UI_Manager>();
+        }
+
         grid = GameObject.FindGameObjectWithTag("WaypointGrid").GetComponent<Grid>();
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
