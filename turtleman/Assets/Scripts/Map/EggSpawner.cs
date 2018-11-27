@@ -7,7 +7,7 @@ public class EggSpawner : MonoBehaviour
     public GameObject egg;
     public int egg_max = 10;
     public float cool_down = 15.0f;
-    private GameObject[] basket;
+    public GameObject[] basket;
     private int egg_count = 0;
     private int egg_index = 0;
     private GameObject[] maze;
@@ -21,28 +21,22 @@ public class EggSpawner : MonoBehaviour
 
     private void Update()
     {
-        if(cool_down <= 0.0f)
-        {
-            AddNewEgg();
-            cool_down = 15.0f;
-        }
-        else
-        {
-            cool_down -= 1 * Time.deltaTime;
-        }
-    }
-
-    private void AddNewEgg()
-    {
         for (int i = 0; i < egg_max; i++)
         {
             if (!basket[i])
             {
-                int a = Random.Range(5, maze.Length - 5);
-                basket[i] = Instantiate(egg, maze[a].transform.position, Quaternion.identity);
-                break;
+                AddNewEgg(i);
             }
         }
+    }
+
+
+    private void AddNewEgg(int index)
+    {
+        int tile = Random.Range(5, maze.Length - 5);
+        float spawn_timer = Random.Range(30.0f, 60.0f);
+        basket[index] = Instantiate(egg, maze[tile].transform.position, Quaternion.identity);
+        basket[index].GetComponent<EggBehaviour>().SetTimeToHatch(spawn_timer);
     }
 
     public void CopyOfMaze(GameObject instan)
@@ -59,6 +53,9 @@ public class EggSpawner : MonoBehaviour
         {
             basket[egg_index] = 
                 Instantiate(egg, instan.transform.position, Quaternion.identity);
+
+            float spawn_timer = Random.Range(30.0f, 60.0f);
+            basket[egg_index].GetComponent<EggBehaviour>().SetTimeToHatch(spawn_timer);
 
             egg_count++;
             egg_index++;

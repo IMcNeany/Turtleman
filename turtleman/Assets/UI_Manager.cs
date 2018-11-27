@@ -96,7 +96,7 @@ public class UI_Manager : MonoBehaviour
                 break;
         }
         ScoreText.text = "" + EggCount;
-        StartCoroutine(Delay());
+        //StartCoroutine(Delay());
     }
 
     private IEnumerator Delay()

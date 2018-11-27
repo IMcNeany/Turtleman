@@ -6,7 +6,7 @@ public class EggBehaviour : MonoBehaviour
 {
 
     float life = 0;
-    float hatchTime = 10.0f;
+    public float hatchTime = 10.0f;
     float speed = 1.0f;
     float strength = 1.0f;
     bool startHatch;
@@ -30,7 +30,7 @@ public class EggBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startHatch && life < (hatchTime / 2))
+        if (startHatch && life < (hatchTime - 5))
         {
             life += Time.deltaTime;
             transform.rotation = new Quaternion(Mathf.Sin(Time.time * 5.0f) * 0.15f, transform.rotation.y, transform.rotation.z, 1.0f);
@@ -74,4 +74,8 @@ public class EggBehaviour : MonoBehaviour
         cltObject.GetComponent<EggWobble>().Shake();
     }
 
+    public void SetTimeToHatch(float newTimer)
+    {
+        hatchTime = newTimer;
+    }
 }
