@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
@@ -28,5 +29,14 @@ public class CameraLerp : MonoBehaviour {
         timer += Time.deltaTime;
         transform.position = Vector3.Lerp(start, end, timer / travelTIme);
         transform.LookAt(egg);
-	}
+        StartCoroutine(CutsceneDelay());
+
+    }
+        private IEnumerator CutsceneDelay()
+        {
+            yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(2);
+
+
+    }
 }

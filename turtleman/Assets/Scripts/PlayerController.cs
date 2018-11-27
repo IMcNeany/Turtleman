@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour {
     private IEnumerator endGame()
     {
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
 
 
     }
