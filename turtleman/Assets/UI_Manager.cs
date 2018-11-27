@@ -16,7 +16,14 @@ public class UI_Manager : MonoBehaviour
 
     [Header("Score Values")]
     public Text ScoreText;
+    public Text highScoreText;
     public int EggCount = 0;
+
+    public Text Assistance;
+
+
+
+
 
     GameObject player;
     PlayerController playercon;
@@ -48,6 +55,7 @@ public class UI_Manager : MonoBehaviour
     void Update()
     {
         UIStuff();
+      
         //GameTimer();
         //FormatTimer();
     }
@@ -87,6 +95,14 @@ public class UI_Manager : MonoBehaviour
                 break;
         }
         ScoreText.text = "" + EggCount;
+        StartCoroutine(Delay());
+    }
+
+    private IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(5);
+        Assistance.gameObject.SetActive(false);
+       
     }
 
     //private void GameTimer()

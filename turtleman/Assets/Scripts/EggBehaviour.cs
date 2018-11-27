@@ -10,6 +10,7 @@ public class EggBehaviour : MonoBehaviour
     float speed = 1.0f;
     float strength = 1.0f;
     bool startHatch;
+    
     public GameObject particleSystem;
     public GameObject turtle;
     MeshRenderer eggRenderer;
