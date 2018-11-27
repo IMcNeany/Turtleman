@@ -738,6 +738,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1725942076218414, guid: b79cb0f25dcd2a34cba04bfe9b82082a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b79cb0f25dcd2a34cba04bfe9b82082a, type: 2}
   m_IsPrefabAsset: 0
@@ -840,6 +844,7 @@ MonoBehaviour:
   material: {fileID: 0}
   score: 0
   health: 0
+  firstTimeLoading: 1
 --- !u!4 &2058986391
 Transform:
   m_ObjectHideFlags: 0
