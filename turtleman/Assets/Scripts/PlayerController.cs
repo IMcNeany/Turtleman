@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour {
     public float Movespeed;
     public float RotateSpeed;
     bool canMove = true;
+    public float footstep_delay = 0.25f;
+    private float current_delay = 0.0f;
+    public AudioSource audio;
     void Start()
     {
         health = 3;
@@ -49,10 +52,22 @@ public class PlayerController : MonoBehaviour {
             //when player is moving
             anim.SetBool("RunningBackwards", false);
             anim.SetBool("Running", true);
+            current_delay -= 1 * Time.deltaTime;
+            if(current_delay <= 0.0f)
+            {
+                audio.Play();
+                current_delay = footstep_delay;
+            }
         }
         else if (controllerPos.z < -0.01f)
         {
             anim.SetBool("Running", true);
+            current_delay -= 1 * Time.deltaTime;
+            if (current_delay <= 0.0f)
+            {
+                audio.Play();
+                current_delay = footstep_delay;
+            }
             anim.SetBool("RunningBackwards", true);
         }
         else if (controllerPos.z == 0)
