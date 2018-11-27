@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+    using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
     public Animator anim;
     public Vector3 controllerPos;
     private UI_Manager healthRef;
+    private SceneController gameOver;
     public int health;
     public float Movespeed;
     public float RotateSpeed;
@@ -15,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     {
         health = 3;
         healthRef = gameObject.GetComponent<UI_Manager>();
+        gameOver = gameObject.GetComponent<SceneController>();
     }
 
     void Update()
@@ -62,6 +65,8 @@ public class PlayerController : MonoBehaviour {
         if (health <= 0)
         {
             anim.SetBool("Death", true);
+            //gameOver.GameOver();
+            StartCoroutine(endGame());
         }
 
         //anim.SetFloat("Horizontal", (x * 10));
@@ -89,5 +94,13 @@ public class PlayerController : MonoBehaviour {
     public int getHealth()
     {
         return health;
+    }
+
+    private IEnumerator endGame()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(2);
+
+
     }
 }
