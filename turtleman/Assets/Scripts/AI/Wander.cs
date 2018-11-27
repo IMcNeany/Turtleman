@@ -60,6 +60,8 @@ public class Wander : MonoBehaviour {
             pcontroller = GameObject.FindGameObjectWithTag
                 ("Player").GetComponent<PlayerController>();
         }
+
+        
 	}
 	
 	// Update is called once per frame
@@ -160,7 +162,7 @@ public class Wander : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Turtle") {
-            path = collision.gameObject.GetComponent<Wander>().path;
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
         }
     }
 }
