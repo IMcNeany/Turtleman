@@ -399,7 +399,7 @@ Prefab:
         type: 2}
       propertyPath: Assistance
       value: 
-      objectReference: {fileID: 175181020}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19b378c87fc8baa4f82394cb705d613b, type: 2}
   m_IsPrefabAsset: 0
@@ -842,7 +842,6 @@ RectTransform:
   - {fileID: 317955333}
   - {fileID: 1374238925}
   - {fileID: 519327424}
-  - {fileID: 175181019}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1128,6 +1127,11 @@ Prefab:
     - target: {fileID: 4307014223525788, guid: 956e0177998600e4e82e9f9309677166, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114070963030806404, guid: 956e0177998600e4e82e9f9309677166,
+        type: 2}
+      propertyPath: egg_max
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 956e0177998600e4e82e9f9309677166, type: 2}

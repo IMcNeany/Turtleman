@@ -55,8 +55,11 @@ public class Wander : MonoBehaviour {
         grid = GameObject.FindGameObjectWithTag("WaypointGrid").GetComponent<Grid>();
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
-        pcontroller = GameObject.FindGameObjectWithTag
-            ("Player").GetComponent<PlayerController>();
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            pcontroller = GameObject.FindGameObjectWithTag
+                ("Player").GetComponent<PlayerController>();
+        }
 	}
 	
 	// Update is called once per frame
@@ -152,5 +155,12 @@ public class Wander : MonoBehaviour {
         audio.clip = clips[3];
         audio.Play();
         pcontroller.setHealth(playerCurrentHealth -= 1);
-    }  
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Turtle") {
+            path = collision.gameObject.GetComponent<Wander>().path;
+        }
+    }
 }

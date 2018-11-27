@@ -9,6 +9,7 @@ TagManager:
   - WaypointGrid
   - UIManager
   - Egg
+  - Turtle
   layers:
   - Default
   - TransparentFX

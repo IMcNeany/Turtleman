@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
     {
         if(health > 0)
         {
-            controllerPos.x = Input.GetAxis("Horizontal_1") * Time.deltaTime * Movespeed;
+            controllerPos.x = Input.GetAxis("Horizontal_1") * Time.deltaTime * RotateSpeed;
             controllerPos.z = Input.GetAxis("Vertical_1") * Time.deltaTime * RotateSpeed;
         }
         
