@@ -41,12 +41,23 @@ public class UI_Manager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         player = GameObject.FindWithTag("Player");
         playercon = player.GetComponent<PlayerController>();
         HP1Flashl = HP1.GetComponent<ModelSizeFlash>();
         HP1Flash2 = HP2.GetComponent<ModelSizeFlash>();
         HP1Flash3 = HP3.GetComponent<ModelSizeFlash>();
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<DataPersistance>();
+
+        if (gm.firstTimeLoading == false)
+        {
+            EggCount = gm.getPlayerScore();
+        }
+        else
+        {
+            EggCount = 0;
+        }
+
         HP1Flashl.pulsate = false;
         HP1Flash2.pulsate = false;
         HP1Flash3.pulsate = false;

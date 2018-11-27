@@ -31,7 +31,17 @@ public class PlayerController : MonoBehaviour {
     {
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<DataPersistance>();
         mat.color = new Color(1.0f, 1.0f, 1.0f);
-        health = 3;
+
+        if (gm.firstTimeLoading == false)
+        {
+            health = gm.getPlayerHealth();
+        }
+        else
+        {
+            health = 3;
+            gm.firstTimeLoading = false;
+        }
+        
         gm.setPlayerHealth(health);
       
         gameOver = gameObject.GetComponent<SceneController>();

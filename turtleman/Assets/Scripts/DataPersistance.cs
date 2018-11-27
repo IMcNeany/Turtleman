@@ -15,6 +15,8 @@ public class DataPersistance : MonoBehaviour
     public Material material = null;
     public int score;
     public int health;
+
+    public bool firstTimeLoading = true;
     void Awake()
     {
         //make sure only 1 version of this object exsists
@@ -127,6 +129,7 @@ public class DataPersistance : MonoBehaviour
     {
         score = 0;
         health = 0;
+        firstTimeLoading = true;
     }
 
     public void setPlayerScore(int s)
@@ -144,7 +147,7 @@ public class DataPersistance : MonoBehaviour
         health = h;
     }
 
-    int getPlayerHealth()
+    public int getPlayerHealth()
     {
         return health;
     }
