@@ -149,5 +149,12 @@ public class Wander : MonoBehaviour {
         audio.clip = clips[3];
         audio.Play();
         pcontroller.setHealth(playerCurrentHealth -= 1);
-    }  
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Turtle") {
+            path = collision.gameObject.GetComponent<Wander>().path;
+        }
+    }
 }
