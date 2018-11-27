@@ -49,14 +49,7 @@ public class UI_Manager : MonoBehaviour
         HP1Flash3 = HP3.GetComponent<ModelSizeFlash>();
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<DataPersistance>();
 
-        if (gm.firstTimeLoading == false)
-        {
-            EggCount = gm.getPlayerScore();
-        }
-        else
-        {
-            EggCount = 0;
-        }
+        EggCount = gm.getPlayerScore();
 
         HP1Flashl.pulsate = false;
         HP1Flash2.pulsate = false;

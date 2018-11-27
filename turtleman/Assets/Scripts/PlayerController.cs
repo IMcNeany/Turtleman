@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
         else
         {
             health = 3;
+            gm.setPlayerScore(0);
             gm.firstTimeLoading = false;
         }
         
